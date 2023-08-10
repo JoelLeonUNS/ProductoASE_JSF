@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display;=swap" rel="stylesheet"/>
+		
+	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'/>
+	
+	<link rel="stylesheet" type="text/css" href="css/estiloBase.css" />
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+	<link rel="icon" href="../imagenes/favicon.png"/>
+	<title>Unidad Médica - Medico</title>
+</h:head>
+<h:body>
+    <h:panelGroup id="header">
+        <h:panelGroup class="header__usuario">
+	    	<h:panelGroup class="header__usuario_imagen">
+	            <h:graphicImage value="/imagenes/usuario.png" alt="Imagen de Usuario" />
+	        </h:panelGroup>
+	        <h:panelGroup class="header__usuario_info">
+	            <b><h:outputText value="Nombre, Apellido"/></b>
+	            <i><h:outputText value="Username"/></i>
+	        </h:panelGroup>
+	    </h:panelGroup>
+        <h:panelGroup class="header__nav">
+        	<h:panelGroup class="nav__bloque">
+	        	<i class="fi fi-br-file-medical-alt"></i>
+		    	<h:outputText value="Historias Clínicas"/>
+	    	</h:panelGroup>
+	    </h:panelGroup>
+	    <h:panelGroup class="header__nav">
+        	<h:panelGroup class="nav__bloque">
+	        	<i class="fi fi-br-assept-document"></i>
+		    	<h:outputText value="Exámenes"/>
+	    	</h:panelGroup>
+	    </h:panelGroup>
+	    <h:panelGroup class="header__nav header__nav--seleccionado">
+        	<h:panelGroup class="nav__bloque">
+	        	<i class="fi fi-br-file-medical"></i>
+		    	<h:outputText value="Informes"/>
+	    	</h:panelGroup>
+	    </h:panelGroup>
+	    <h:panelGroup class="header__nav header__nav--last">
+        	<h:panelGroup class="nav__bloque">
+	        	<i class="fi fi-br-sign-out-alt"></i>
+		    	<h:outputText value="Cerrar Sesión"/>
+	    	</h:panelGroup>
+	    </h:panelGroup>
+    </h:panelGroup>
+    
+    <h:panelGroup id="main">
+	    <h:form id="buscarHistoria" class="buscarHistoria-form">
+	        <h:panelGroup class="buscarHistoria-form__barra">
+	        	<h:commandButton class = "buscarHistoria-form__boton" image="../imagenes/busqueda.svg" action="#{loginBean.login}" />
+	            <h:inputText class = "buscarHistoria-form__input" value="#{loginBean.username}" />
+	        </h:panelGroup>
+	        <h:panelGroup class="buscarHistoria-form__tabla-contenedor">
+		        <h:dataTable class="buscarHistoria-form__tabla" value="#{miBean.listaDeDatos}" var="dato">
+				    <h:column>
+				        <f:facet name="header">DNI</f:facet>
+				        <h:outputText value="#{dato.propiedad1}" />
+				    </h:column>
+				    <h:column>
+				        <f:facet name="header">Nombre</f:facet>
+				        <h:outputText value="#{dato.propiedad1}" />
+				    </h:column>
+				    <h:column>
+				        <f:facet name="header">Apellido</f:facet>
+				        <h:outputText value="#{dato.propiedad1}" />
+				    </h:column>
+				</h:dataTable>
+			</h:panelGroup>
+	    </h:form>
+	    <h:form id="administrarCuenta" class="administrarCuenta-form">
+	        <h:panelGroup class="administrarCuenta-form__barra-botones">
+	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
+	        		<i class="fi fi-br-user-add"></i>
+	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Crear cuenta" action="#{loginBean.login}" />
+	        	</h:panelGroup>
+	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
+	        		<i class="fi fi-br-user-pen"></i>
+	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Editar cuenta" action="#{loginBean.login}" />
+	        	</h:panelGroup>
+	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
+	        		<i class="fi fi-br-delete-user"></i>
+	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Desactivar cuenta" action="#{loginBean.login}" />
+	        	</h:panelGroup>
+	        	<h:panelGroup class="administrarCuenta-form__bloque-boton administrarCuenta-form__bloque-boton--last">
+	        		<i class="fi fi-br-disk"></i>
+	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Guardar" action="#{loginBean.login}" />
+	        	</h:panelGroup>
+	       	</h:panelGroup>
+        	<h:panelGroup class="administrarCuenta-form__campos">
+        		<h:panelGroup class="bloque__campos-descripcion">
+        			<h:outputText class="bloque__campos-titulo" value="Datos Personales"/>
+	        		<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="DNI" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Nombre" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Apellidos" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Teléfono" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+            	</h:panelGroup>
+            	<h:panelGroup class="bloque__campos-descripcion">
+            		<h:outputText class="bloque__campos-titulo" value="Cuenta de Usuario"/>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Usuario" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Clave" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            </h:panelGroup>
+	            </h:panelGroup>
+	        </h:panelGroup>
+
+	    </h:form>
+    </h:panelGroup>
+    <h:panelGroup id="footer">
+    	<h:outputText value="Integrantes: Castillo Goicochea Angie Carolina, Gonzales Corzo Abner Jorge, Leon Mondoñedo Joel y Tirado Mendoza Gilmer Alexander."/>
+    </h:panelGroup>
+</h:body>
+</html>
