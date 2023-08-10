@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display;=swap" rel="stylesheet"/>
+		
+	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'/>
+	
+	<link rel="stylesheet" type="text/css" href="css/estiloBase.css" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+	<title>Unidad Médica - Login</title>
+</h:head>
+<h:body>
+    <h:panelGroup id="header">
+        <h:panelGroup class="header__logo">
+	    	<h:graphicImage value="/imagenes/unsLogo.png" alt="Logo UNS" width="90px"/>
+	    </h:panelGroup>
+        <h:panelGroup class="header__nav">
+        	<h:panelGroup class="nav__bloque">
+	        	<i class="fi fi-br-home"></i>
+		    	<h:outputText value="Unidad Médica"/>
+	    	</h:panelGroup>
+	    </h:panelGroup>
+    </h:panelGroup>
+    
+    <h:panelGroup id="main">
+    	<h:panelGroup class="info">
+	    	<h:graphicImage class="info__imagen" value="/imagenes/unidadMedica.jpg" alt="Imagen informativa"/>
+	    	<p class="info__texto">La Universidad Nacional del Santa (UNS) inauguró hoy su unidad médica, que estará a disposición de la comunidad universitaria y el público en general, y que permitirá que sus estudiantes de Medicina Humana, Enfermería y de otras escuelas profesionales realicen sus prácticas pre y profesionales en instalaciones de primer nivel.</p>
+	    </h:panelGroup>
+	    <h:form id="loginForm" class="login-form">
+	        <h:panelGroup class="login-form__imagen">
+	            <h:graphicImage value="/imagenes/usuario.png" alt="Imagen de Usuario" />
+	        </h:panelGroup>
+	        <h:panelGroup class="login-form__campos">
+	            <h:outputLabel class = "campos__output" value="Usuario" />
+	            <h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            <h:outputLabel class = "campos__output" value="Contraseña" />
+	            <h:inputSecret class = "campos__input" value="#{loginBean.password}" />
+	            <h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />
+	            <h:outputLabel class = "campos__output" value="Recordar Sesión" />
+	            <h:commandButton class = "campos__boton" value="Iniciar Sesión" action="#{loginBean.login}" />
+	        </h:panelGroup>
+	    </h:form>
+    </h:panelGroup>
+    <h:panelGroup id="footer">
+    	<h:outputText value="Integrantes: Castillo Goicochea, Gonzales Corzo, Leon Mondoñedo y Tirado Mendoza."/>
+    </h:panelGroup>
+</h:body>
+</html>
