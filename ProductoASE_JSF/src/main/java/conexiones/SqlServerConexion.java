@@ -33,7 +33,7 @@ public class SqlServerConexion {
         try {
             conector = DriverManager.getConnection(conexion, nombreUsuario, clave);
             conector.setAutoCommit(false);
-            System.out.print("Conexión realizada");
+            System.out.println("Conexión realizada");
         } catch (SQLException e) {
         	System.out.println("Error de nombre de usuario y/o clave: " + e.getMessage());
         }
