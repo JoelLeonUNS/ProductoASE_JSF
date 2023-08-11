@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package modelo;
 
 import conexiones.SqlServerConexion;
@@ -72,8 +76,8 @@ public class ModeloInforme {
             if (paciente instanceof Alumno) {
                 Alumno alumno = (Alumno) paciente;
                 String escuela = alumno.getEscuela().getNombre();
-                String facultad = alumno.getEscuela().getFacultad(); 
-                String escuelaConFacultad = escuela + " - " + facultad; 
+                String facultad = alumno.getEscuela().getFacultad(); // Obtener nombre de la facultad
+                String escuelaConFacultad = escuela + " - " + facultad; // Combinar escuela y facultad
                 String sexo = alumno.getSexo();
 
                 datosPorEscuela.putIfAbsent(escuelaConFacultad, new Integer[]{0, 0});
@@ -90,12 +94,12 @@ public class ModeloInforme {
         List<Object[]> datosAlumnos = new ArrayList<>();
         for (String escuelaConFacultad : datosPorEscuela.keySet()) {
             Integer[] generoData = datosPorEscuela.get(escuelaConFacultad);
-            String[] escuelaYFacultad = escuelaConFacultad.split(" - ");
+            String[] escuelaYFacultad = escuelaConFacultad.split(" - "); // Separar escuela y facultad
             Object[] datos = new Object[]{
-                escuelaYFacultad[1], 
-                escuelaYFacultad[0], 
-                generoData[0],
-                generoData[1], 
+                escuelaYFacultad[1], // Nombre de la escuela
+                escuelaYFacultad[0], // Nombre de la facultad
+                generoData[0], // Masculino
+                generoData[1], // Femenino
                 generoData[0] + generoData[1] // Total
             };
             datosAlumnos.add(datos);
@@ -107,7 +111,7 @@ public class ModeloInforme {
     public List<Object[]> obtenerInforme3() {
         List<Object[]> datosInforme3 = new ArrayList<>();
         try {
-            Connection connection = SqlServerConexion.getInstance(); 
+            Connection connection = SqlServerConexion.getInstance(); // Obtener la conexión desde tu clase SqlServerConexion
 
             String consultaSQL = "SELECT tipoPaciente, condicion, sexo, "
                     + "COUNT(*) AS cantidad, "
@@ -132,7 +136,7 @@ public class ModeloInforme {
             ResultSet resultSet = statement.executeQuery(consultaSQL);
 
             while (resultSet.next()) {
-                Object[] fila = new Object[5]; 
+                Object[] fila = new Object[5]; // Ajustar el tamaño según la cantidad de columnas
 
                 fila[0] = resultSet.getString("tipoPaciente");
                 fila[1] = resultSet.getString("condicion");

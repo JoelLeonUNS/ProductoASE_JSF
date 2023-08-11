@@ -3,7 +3,8 @@ package examenesClinico;
 import examenes.Examen;
 
 public class ExamenClinico extends Examen {
-	private boolean APCardiovascular;
+
+    private boolean APCardiovascular;
     private boolean APRespiratorio;
 
     public ExamenClinico() {
@@ -31,5 +32,4 @@ public class ExamenClinico extends Examen {
     public void setAPRespiratorio(boolean APRespiratorio) {
         this.APRespiratorio = APRespiratorio;
     }
-
 }

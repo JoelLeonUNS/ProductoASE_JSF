@@ -92,7 +92,5 @@ public class SqlServerDAOFactory extends DAOFactory {
         SqlServerExamenClinicoDAO examenClinicoDAO = new SqlServerExamenClinicoDAO();
         examenClinicoDAO.setConector(SqlServerConexion.getInstance());
         return examenClinicoDAO;
-    }
-
-    
+    }   
 }

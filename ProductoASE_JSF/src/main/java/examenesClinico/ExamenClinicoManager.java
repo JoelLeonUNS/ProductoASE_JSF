@@ -1,9 +1,10 @@
 package examenesClinico;
-
 import examenes.Examen;
 import examenes.ExamenManager;
+import java.util.Scanner;
 
 public class ExamenClinicoManager extends ExamenManager {
+    private final Scanner input = new Scanner(System.in);
     
     @Override
     public Examen registrar() {
@@ -18,5 +19,4 @@ public class ExamenClinicoManager extends ExamenManager {
         
         return examen;
     }
-
 }

@@ -1,7 +1,8 @@
 package examenes;
 
+
 public class Examen {
-	private int idExamen;
+    private int idExamen;
     private int idConsulta;
     private String observacion;
 
@@ -36,5 +37,5 @@ public class Examen {
     public void setIdConsulta(int idConsulta) {
         this.idConsulta = idConsulta;
     }
-
+    
 }

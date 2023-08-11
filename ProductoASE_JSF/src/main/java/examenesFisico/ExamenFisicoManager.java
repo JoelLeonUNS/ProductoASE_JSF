@@ -2,9 +2,11 @@ package examenesFisico;
 
 import examenes.Examen;
 import examenes.ExamenManager;
+import java.util.Scanner;
 
 public class ExamenFisicoManager extends ExamenManager {
 
+    private final Scanner input = new Scanner(System.in);
 
     @Override
     public Examen registrar() {

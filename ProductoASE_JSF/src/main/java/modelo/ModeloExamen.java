@@ -1,3 +1,4 @@
+
 package modelo;
 
 import examenes.Examen;
@@ -69,20 +70,29 @@ public class ModeloExamen {
     }
     
     
-    public void setTipoExamen(String tipoExamen){
-        switch(tipoExamen){
-            case "MEDICO" ->{
-                this.examenManager = new ExamenMedicoManager();
-            }
-            case "FISICO" ->{
-                this.examenManager = new ExamenFisicoManager();
-            }
-            case "CLINICO" ->{
-                this.examenManager = new ExamenClinicoManager();
-            }
+    public void setTipoExamen(String tipoExamen) {
+        ExamenManager examenManager = null;
+        
+        switch (tipoExamen) {
+            case "MEDICO": {
+                examenManager = new ExamenMedicoManager();
+                break;
+                }
+            case "FISICO": {
+                examenManager = new ExamenFisicoManager();
+                break; 
+                }
+            case "CLINICO": {
+                examenManager = new ExamenClinicoManager();
+                break;
+                }
         }
-        this.examen = examenManager.registrar();
+        
+        if (examenManager != null) {
+            this.examen = examenManager.registrar();
+        }
     }
+
     
     public void setDatosExamenMedico(String diagnostico, String tratamiento, String examAux, String observacion){
         this.examen = ((ExamenMedicoManager) examenManager).setDatos(examen, diagnostico, tratamiento, examAux, observacion);
@@ -112,14 +122,17 @@ public class ModeloExamen {
     public void añadirExamen(Examen exa){
         getTipoExamen (exa);
         switch(examenTmp){
-            case "MEDICO" ->{
+            case "MEDICO": {
                 dao.getExamenMedico().create(exa);
+                break;
             }
-            case "FISICO" ->{
+            case "FISICO":{
                 dao.getExamenFisico().create(exa);
+                break;
             }
-            case "CLINICO" ->{
+            case "CLINICO":{
                 dao.getExamenClinico().create(exa);
+                break;
             }       
         }
     }

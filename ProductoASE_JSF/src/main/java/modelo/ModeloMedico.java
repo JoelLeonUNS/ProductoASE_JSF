@@ -1,3 +1,4 @@
+
 package modelo;
 
 import factoryDAO.DAOFactory;
@@ -18,15 +19,7 @@ public class ModeloMedico {
         this.medico = new Medico();
         medico.setUsuario(new Usuario());
     }
-
-    public Medico getMedico() {
-        return medico;
-    }
     
-    public void setMedico(Medico medico) {
-        this.medico = medico;
-    }
-        
     public void setDatosMedico(String dni, String nombre, String apellidos, String telefono){
         medico.setDNI(dni);
         medico.setNombreMedico(nombre);
@@ -41,6 +34,10 @@ public class ModeloMedico {
         medico.getUsuario().setRol("Medico");
     }
 
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+ 
     public Medico buscarMedicoDNI(String dni){
         for(Medico medicoBD: (List<Medico>)dao.getMedico().listed()) {
             if (medicoBD.getDNI().equals(dni)) {
@@ -93,4 +90,3 @@ public class ModeloMedico {
         return idMedico!=-1 ? (Medico)dao.getMedico().read(idMedico) : null;
     }
 }
-

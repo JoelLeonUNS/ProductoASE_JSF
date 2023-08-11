@@ -1,10 +1,9 @@
 package examenesFisico;
-
 import examenes.Examen;
 
-public class ExamenFisico extends Examen{
-	
-	private double temperatura;
+public class ExamenFisico extends Examen {
+
+    private double temperatura;
     private String PA;
     private double FR;
     private double SPO2;
@@ -100,5 +99,4 @@ public class ExamenFisico extends Examen{
     public void setPerimetroAbdominal(double perimetroAbdominal) {
         this.perimetroAbdominal = perimetroAbdominal;
     }
-
 }

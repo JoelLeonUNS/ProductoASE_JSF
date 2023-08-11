@@ -1,25 +1,26 @@
 
-package sqlServerDAO;
+package mySqlDAO;
 
-import DAO.ExamenClinicoDAO;
-import examenesClinico.ExamenClinico;
+import DAO.ExamenMedicoDAO;
+import examenesMedico.ExamenMedico;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SqlServerExamenClinicoDAO extends ExamenClinicoDAO<ExamenClinico> {
+public class MySqlExamenMedicoDAO extends ExamenMedicoDAO<ExamenMedico>{
 
     @Override
-    public ExamenClinico create(ExamenClinico obj) {
+    public ExamenMedico create(ExamenMedico obj) {
         obj.setIdExamen(lastId());
         try {
-            setSql("INSERT INTO ExamenClinico (idExamenClinico, idConsulta, observacion, apCardiovascular, apRespiratorio) VALUES (?, ?, ?, ?, ?)");
+            setSql("INSERT INTO ExamenMedico (idExamenMedico, idConsulta, observacion, diagnostico, tratamiento, examenAuxiliar) VALUES (?, ?, ?, ?, ?, ?)");
             setPs(getConector().prepareStatement(getSql()));
             getPs().setInt(1, obj.getIdExamen());
             getPs().setInt(2, obj.getIdConsulta());
             getPs().setString(3, obj.getObservacion());
-            getPs().setBoolean(4, obj.isAPCardiovascular());
-            getPs().setBoolean(5, obj.isAPRespiratorio());
+            getPs().setString(4, obj.getDiagnostico());
+            getPs().setString(5, obj.getTratamiento());
+            getPs().setString(6, obj.getExamenesAux());
 
             if (!exeUpdate()) obj = null;
         } catch (SQLException e) {
@@ -30,9 +31,9 @@ public class SqlServerExamenClinicoDAO extends ExamenClinicoDAO<ExamenClinico> {
     }
 
     @Override
-    public ExamenClinico delete(ExamenClinico obj) {
+    public ExamenMedico delete(ExamenMedico obj) {
         try {
-            setSql("DELETE FROM ExamenClinico WHERE idExamenClinico = ?");
+            setSql("DELETE FROM ExamenMedico WHERE idExamenMedico = ?");
             setPs(getConector().prepareStatement(getSql()));
             getPs().setInt(1, obj.getIdConsulta());
 
@@ -44,14 +45,15 @@ public class SqlServerExamenClinicoDAO extends ExamenClinicoDAO<ExamenClinico> {
     }
 
     @Override
-    public ExamenClinico update(ExamenClinico obj) {
+    public ExamenMedico update(ExamenMedico obj) {
         try {
-            setSql("UPDATE ExamenClinico SET observacion = ?, apCardiovascular = ?, apRespiratorio = ? WHERE idExamenClinico = ?");
+            setSql("UPDATE ExamenMedico SET observacion = ?, diagnostico = ?, tratamiento = ?, examenAuxiliar = ? WHERE idExamenMedico = ?");
             setPs(getConector().prepareStatement(getSql()));
             getPs().setString(1, obj.getObservacion());
-            getPs().setBoolean(2, obj.isAPCardiovascular());
-            getPs().setBoolean(3, obj.isAPRespiratorio());
-            getPs().setInt(4, obj.getIdExamen());
+            getPs().setString(2, obj.getDiagnostico());
+            getPs().setString(3, obj.getTratamiento());
+            getPs().setString(4, obj.getExamenesAux());
+            getPs().setInt(5, obj.getIdExamen());
 
             if (!exeUpdate()) {
                 obj = null;
@@ -63,21 +65,22 @@ public class SqlServerExamenClinicoDAO extends ExamenClinicoDAO<ExamenClinico> {
     }
 
     @Override
-    public ExamenClinico read(int id) {
-        setSql("SELECT * FROM ExamenClinico WHERE idExamenClinico = ?");
-        ExamenClinico examen = null;
+    public ExamenMedico read(int id) {
+        setSql("SELECT * FROM ExamenMedico WHERE idExamenMedico = ?");
+        ExamenMedico examen = null;
         try {
             setPs(getConector().prepareStatement(getSql()));
             getPs().setInt(1, id);
             setRs(getPs().executeQuery());
 
             if (getRs().next()) {
-                examen = new ExamenClinico();
-                examen.setIdExamen(getRs().getInt("idExamenClinico"));                
+                examen = new ExamenMedico();
+                examen.setIdExamen(getRs().getInt("idExamenMedico"));                
                 examen.setIdConsulta(getRs().getInt("idConsulta"));
                 examen.setObservacion(getRs().getString("observacion"));
-                examen.setAPCardiovascular(getRs().getBoolean("apCardiovascular"));
-                examen.setAPRespiratorio(getRs().getBoolean("apRespiratorio"));
+                examen.setDiagnostico(getRs().getString("diagnostico"));
+                examen.setTratamiento(getRs().getString("tratamiento"));
+                examen.setExamenesAux(getRs().getString("examenAuxiliar"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -86,20 +89,21 @@ public class SqlServerExamenClinicoDAO extends ExamenClinicoDAO<ExamenClinico> {
     }
 
     @Override
-    public List<ExamenClinico> listed() {
-        List<ExamenClinico> listaExamenes = new ArrayList<>();
+    public List<ExamenMedico> listed() {
+        List<ExamenMedico> listaExamenes = new ArrayList<>();
         try {
-            setSql("SELECT * FROM ExamenClinico");
+            setSql("SELECT * FROM ExamenMedico");
             setPs(getConector().prepareStatement(getSql()));
             setRs(getPs().executeQuery());
 
             while (getRs().next()) {
-                ExamenClinico examen = new ExamenClinico();
-                examen.setIdExamen(getRs().getInt("IdExamenClinico"));                
+                ExamenMedico examen = new ExamenMedico();
+                examen.setIdExamen(getRs().getInt("idExamenMedico"));                
                 examen.setIdConsulta(getRs().getInt("idConsulta"));
                 examen.setObservacion(getRs().getString("observacion"));
-                examen.setAPCardiovascular(getRs().getBoolean("apCardiovascular"));
-                examen.setAPRespiratorio(getRs().getBoolean("apRespiratorio"));
+                examen.setDiagnostico(getRs().getString("diagnostico"));
+                examen.setTratamiento(getRs().getString("tratamiento"));
+                examen.setExamenesAux(getRs().getString("examenAuxiliar"));
                 
                 listaExamenes.add(examen);
             }
@@ -112,11 +116,11 @@ public class SqlServerExamenClinicoDAO extends ExamenClinicoDAO<ExamenClinico> {
     public int lastId() {
         int lastId = 0;
         try {
-            setSql("SELECT TOP 1 idExamenClinico FROM ExamenClinico ORDER BY idExamenClinico DESC");
+            setSql("SELECT TOP 1 idExamenMedico FROM ExamenMedico ORDER BY idExamenMedico DESC");
             setPs(getConector().prepareStatement(getSql()));
             setRs(getPs().executeQuery());
             if (getRs().next()) {
-                lastId = getRs().getInt("idExamenClinico");
+                lastId = getRs().getInt("idExamenMedico");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

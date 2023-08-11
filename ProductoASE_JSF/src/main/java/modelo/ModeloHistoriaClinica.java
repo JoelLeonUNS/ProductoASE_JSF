@@ -26,14 +26,17 @@ public class ModeloHistoriaClinica {
     public final void resetModelo(String tipoPaciente) {
         this.historiaClinica = new HistoriaClinica();
         switch (tipoPaciente) {
-            case "Alumno" -> {
+            case "Alumno": {
                 this.historiaClinica.setPaciente(new Alumno());
+                break;
             }
-            case "Trabajador" -> {
+            case "Trabajador": {
                 this.historiaClinica.setPaciente(new Trabajador());
+                break;
             }
-            case "Paciente" -> {
+            case "Paciente": {
                 this.historiaClinica.setPaciente(new Paciente());
+                break;
             }
         }
     }

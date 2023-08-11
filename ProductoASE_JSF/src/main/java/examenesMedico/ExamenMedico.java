@@ -1,5 +1,4 @@
 package examenesMedico;
-
 import examenes.Examen;
 
 public class ExamenMedico extends Examen {

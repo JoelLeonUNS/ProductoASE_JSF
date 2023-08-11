@@ -1,5 +1,5 @@
 
-package sqlServerDAO;
+package mySqlDAO;
 
 import DAO.ExamenFisicoDAO;
 import examenesFisico.ExamenFisico;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SqlServerExamenFisicoDAO extends ExamenFisicoDAO<ExamenFisico> {
+public class MySqlExamenFisicoDAO extends ExamenFisicoDAO<ExamenFisico> {
 
     @Override
     public ExamenFisico create(ExamenFisico obj) {

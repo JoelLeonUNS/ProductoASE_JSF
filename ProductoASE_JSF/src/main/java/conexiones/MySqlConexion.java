@@ -26,7 +26,7 @@ public class MySqlConexion {
     }
     
     private static void conectar() {
-        conexion = url + nombreServidor + ":" + numeroPuerto + ";" + "databaseName=" + nombreBaseDato;
+        conexion = url + nombreServidor + "/" + nombreBaseDato;
         try {
             conector = DriverManager.getConnection(conexion, nombreUsuario, clave);          
             conector.setAutoCommit(false);   

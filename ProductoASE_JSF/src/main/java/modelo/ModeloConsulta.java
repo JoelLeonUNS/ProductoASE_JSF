@@ -2,7 +2,7 @@ package modelo;
 
 import consultas.ConsultaMedica;
 import factoryDAO.DAOFactory;
-import factoryDAO.SqlServerDAOFactory;
+import factoryDAO.MySqlDAOFactory;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -12,10 +12,10 @@ public class ModeloConsulta {
     private DAOFactory dao;
     private ConsultaMedica consulta;
     private int idConsulta;
-
+	
     public ModeloConsulta() {
         this.consulta = new ConsultaMedica();
-        this.dao = new SqlServerDAOFactory();
+        this.dao = new MySqlDAOFactory();
     }
 
     public void setDatosConsulta(LocalDate fecha, LocalTime hora, int edad, String tiempoEnfermedad, String apetito, String sueño, String sed, String estadoAnimo, String motivo) {

@@ -1,9 +1,11 @@
 package examenesMedico;
-
 import examenes.Examen;
 import examenes.ExamenManager;
+import java.util.Scanner;
+
 
 public class ExamenMedicoManager extends ExamenManager {
+    private final Scanner input = new Scanner(System.in);
     
     @Override
     public Examen registrar() {

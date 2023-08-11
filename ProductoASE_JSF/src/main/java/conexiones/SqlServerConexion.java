@@ -3,9 +3,11 @@ package conexiones;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class SqlServerConexion {
-	private static Connection conector;
+
+    private static Connection conector;
     private static String url;
     private static String nombreServidor;
     private static String numeroPuerto;
@@ -13,7 +15,7 @@ public class SqlServerConexion {
     private static String nombreUsuario;
     private static String clave;
     private static String conexion;
-    
+
     public static void setDatos(String nombreServidor, String numeroPuerto, String nombreBaseDato, String nombreUsuario, String clave) {
         SqlServerConexion.url = "jdbc:sqlserver://";
         SqlServerConexion.nombreServidor = nombreServidor;
@@ -24,18 +26,17 @@ public class SqlServerConexion {
     }
 
     private static void conectar() {
-        conexion = url + nombreServidor + ":" + numeroPuerto + ";" + "databaseName=" + nombreBaseDato + ";trustServerCertificate=true;";
+        conexion = url + nombreServidor + ":" + numeroPuerto + ";" + "databaseName=" + nombreBaseDato;
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {
-        	System.out.println("Driver no encontrado: " + e.getMessage()+" Error de conexión");
+            JOptionPane.showMessageDialog(null, "Driver no encontrado: " + e.getMessage(), "Error de conexión", JOptionPane.ERROR_MESSAGE);
         }
         try {
             conector = DriverManager.getConnection(conexion, nombreUsuario, clave);
             conector.setAutoCommit(false);
-            System.out.println("Conexión realizada");
         } catch (SQLException e) {
-        	System.out.println("Error de nombre de usuario y/o clave: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error de nombre de usuario y/o clave: " + e.getMessage(), "Error de conexión", JOptionPane.ERROR_MESSAGE);
         }
     }
 

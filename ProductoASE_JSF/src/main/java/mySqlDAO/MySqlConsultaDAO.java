@@ -1,10 +1,10 @@
 
-package sqlServerDAO;
+package mySqlDAO;
 
 import DAO.ConsultaDAO;
 import consultas.ConsultaMedica;
 import factoryDAO.DAOFactory;
-import factoryDAO.SqlServerDAOFactory;
+import factoryDAO.MySqlDAOFactory;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import medicos.Medico;
 
-public class SqlServerConsultaDAO extends ConsultaDAO<ConsultaMedica>{
+public class MySqlConsultaDAO extends ConsultaDAO<ConsultaMedica>{
 
     @Override
     public ConsultaMedica create(ConsultaMedica obj) {
@@ -75,7 +75,7 @@ public class SqlServerConsultaDAO extends ConsultaDAO<ConsultaMedica>{
                 consulta.setIdConsulta(getRs().getInt("idConsulta"));
                 consulta.setIdHistoria(getRs().getInt("idHistoriaClinica"));
                 
-                DAOFactory dao = new SqlServerDAOFactory();
+                DAOFactory dao = new MySqlDAOFactory();
                 consulta.setAtendidoPor((Medico) dao.getMedico().read(getRs().getInt("idMedico")));
                 consulta.setFecha(getRs().getDate("fecha").toLocalDate());
                 consulta.setHora(getRs().getTime("hora").toLocalTime());
@@ -107,7 +107,7 @@ public class SqlServerConsultaDAO extends ConsultaDAO<ConsultaMedica>{
                 consulta.setIdConsulta(getRs().getInt("idConsulta"));
                 consulta.setIdHistoria(getRs().getInt("idHistoriaClinica"));
                 
-                DAOFactory dao = new SqlServerDAOFactory();
+                DAOFactory dao = new MySqlDAOFactory();
                 consulta.setAtendidoPor((Medico) dao.getMedico().read(getRs().getInt("idMedico")));
                 consulta.setFecha(getRs().getDate("fecha").toLocalDate());
                 consulta.setHora(getRs().getTime("hora").toLocalTime());

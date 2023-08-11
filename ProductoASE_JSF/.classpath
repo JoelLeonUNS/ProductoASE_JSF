@@ -5,9 +5,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry including="Beans/|DAO/|PDFGenerator/|conexiones/|consultas/|examenes/|examenesClinico/|examenesFisico/|examenesMedico/|factoryDAO/|historias/|medicos/|modelo/|pacientes/|sqlServerDAO/" kind="src" path="src/main/java"/>
+	<classpathentry excluding="sqlServerDAO/SqlServerConsultaDAO.java|sqlServerDAO/SqlServerExamenClinicoDAO.java|sqlServerDAO/SqlServerExamenFisicoDAO.java|sqlServerDAO/SqlServerExamenMedicoDAO.java|sqlServerDAO/SqlServerFamiliarDAO.java|sqlServerDAO/SqlServerHistoriaClinicaDAO.java|sqlServerDAO/SqlServerHistoriaClinicaEnfermedadDAO.java|sqlServerDAO/SqlServerMedicoDAO.java|sqlServerDAO/SqlServerPacienteDAO.java|sqlServerDAO/SqlServerUsuarioDAO.java|factoryDAO/SqlServerDAOFactory.java" including="Beans/|DAO/|PDFGenerator/|conexiones/|consultas/|examenes/|examenesClinico/|examenesFisico/|examenesMedico/|factoryDAO/|historias/|medicos/|modelo/|pacientes/|sqlServerDAO/" kind="src" path="src/main/java"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/USUARIO/eclipse-workspace/ProductoASE_JSF/pdfbox-app-2.0.29.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USUARIO/eclipse-workspace/mysql-connector-odbc-noinstall-8.0.33-winx64.zip"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

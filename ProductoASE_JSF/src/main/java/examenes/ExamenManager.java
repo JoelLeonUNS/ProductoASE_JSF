@@ -1,5 +1,4 @@
 package examenes;
-
 public abstract class ExamenManager {
 
     public abstract Examen registrar();
