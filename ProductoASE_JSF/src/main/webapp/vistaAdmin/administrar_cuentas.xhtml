@@ -70,19 +70,31 @@
 	        <h:panelGroup class="administrarCuenta-form__barra-botones">
 	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
 	        		<i class="fi fi-br-user-add"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Crear cuenta" action="#{loginBean.login}" />
+	        		<!--  <h:commandButton class = "administrarCuenta-form__boton" value = "Crear cuenta" action="#{loginBean.login}" /> -->
+	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Crear cuenta">
+    					<f:setPropertyActionListener value="" target="#{BeanInterfazAdmin.DNI}" />
+    					<f:setPropertyActionListener value="" target="#{BeanInterfazAdmin.nombreMedico}" />
+    					<f:setPropertyActionListener value="" target="#{BeanInterfazAdmin.apellidoMedico}" />
+    					<f:setPropertyActionListener value="" target="#{BeanInterfazAdmin.telefonoMedico}" />
+    					<f:setPropertyActionListener value="" target="#{BeanInterfazAdmin.usuario}" />
+    					<f:setPropertyActionListener value="" target="#{BeanInterfazAdmin.clave}" />
+    					<f:setPropertyActionListener value="CREAR" target="#{BeanInterfazAdmin.tipoGuardado}" />
+					</h:commandButton>
 	        	</h:panelGroup>
 	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
 	        		<i class="fi fi-br-user-pen"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Editar cuenta" action="#{loginBean.login}" />
+	        		<!-- <h:commandButton class = "administrarCuenta-form__boton" value = "Editar cuenta" action="#{loginBean.login}" /> -->
+	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Editar cuenta">
+	        			<f:setPropertyActionListener value="EDITAR" target="#{BeanInterfazAdmin.tipoGuardado}" />
+	        		</h:commandButton>
 	        	</h:panelGroup>
 	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
 	        		<i class="fi fi-br-delete-user"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Desactivar cuenta" action="#{loginBean.login}" />
+	        		<h:commandButton class="administrarCuenta-form__boton" value="Desactivar cuenta" actionListener="#{BeanInterfazAdmin.desactivarCuenta}" />
 	        	</h:panelGroup>
 	        	<h:panelGroup class="administrarCuenta-form__bloque-boton administrarCuenta-form__bloque-boton--last">
 	        		<i class="fi fi-br-disk"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Guardar" action="#{loginBean.login}" />
+	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Guardar" actionListener="#{BeanInterfazAdmin.guardar}" />
 	        	</h:panelGroup>
 	       	</h:panelGroup>
         	<h:panelGroup class="administrarCuenta-form__campos">
@@ -90,30 +102,30 @@
         			<h:outputText class="bloque__campos-titulo" value="Datos Personales"/>
 	        		<h:panelGroup class="bloque__campos">
 		        		<h:outputLabel class = "campos__output" value="DNI" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	<h:inputText class = "campos__input" value="#{BeanInterfazAdmin.DNI}" />
 	            	</h:panelGroup>
 	            	<h:panelGroup class="bloque__campos">
 		        		<h:outputLabel class = "campos__output" value="Nombre" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	<h:inputText class = "campos__input" value="#{BeanInterfazAdmin.nombreMedico}" />
 	            	</h:panelGroup>
 	            	<h:panelGroup class="bloque__campos">
 		        		<h:outputLabel class = "campos__output" value="Apellidos" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	<h:inputText class = "campos__input" value="#{BeanInterfazAdmin.apellidoMedico}" />
 	            	</h:panelGroup>
 	            	<h:panelGroup class="bloque__campos">
 		        		<h:outputLabel class = "campos__output" value="Teléfono" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	<h:inputText class = "campos__input" value="#{BeanInterfazAdmin.telefonoMedico}" />
 	            	</h:panelGroup>
             	</h:panelGroup>
             	<h:panelGroup class="bloque__campos-descripcion">
             		<h:outputText class="bloque__campos-titulo" value="Cuenta de Usuario"/>
 	            	<h:panelGroup class="bloque__campos">
 		        		<h:outputLabel class = "campos__output" value="Usuario" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	<h:inputText class = "campos__input" value="#{BeanInterfazAdmin.usuario}" />
 	            	</h:panelGroup>
 	            	<h:panelGroup class="bloque__campos">
 		        		<h:outputLabel class = "campos__output" value="Clave" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	<h:inputText class = "campos__input" value="#{BeanInterfazAdmin.clave}" />
 		            </h:panelGroup>
 	            </h:panelGroup>
 	        </h:panelGroup>

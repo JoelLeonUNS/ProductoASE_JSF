@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
+
 import medicos.Medico;
 
 @ManagedBean
@@ -143,7 +145,15 @@ public class BeanInterfazAdmin implements Serializable {
         modelo.editar();
     }
     
-    public void desactivarCuenta(){
+    public void guardar(ActionEvent event) {
+    	if(tipoGuardado.equals("CREAR")) {
+    		registrar();
+    	}else if(tipoGuardado.equals("EDITAR")) {
+    		editar();
+    	}
+    }
+    
+    public void desactivarCuenta(ActionEvent event){
         modelo.darDeBaja();
     }
     
