@@ -61,7 +61,7 @@
         		<h:outputText class="bloque__campos-titulo" value="Detalles"/>
 		        <h:panelGroup class="bloque__campos">
 		        	<h:outputLabel class = "campos__output" value="Nombre Archivo" />
-		            <h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            <h:inputText class = "campos__input" value="#{BeanInforme.nombreInforme}" />
 	            </h:panelGroup>
 	            <h:panelGroup class="bloque__campos">
 		        	<h:outputLabel class = "campos__output" value="Descripción" />
@@ -73,7 +73,7 @@
 	        <h:panelGroup class="vistaPreviaInforme-form__barra-botones">
 	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton">
 	        		<i class="fi fi-br-add"></i>
-	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Generar Informe" action="#{loginBean.login}" />
+	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Generar Informe" action="#{BeanInforme.generarInformePDF}" />
 	        	</h:panelGroup>
 	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton">
 		        	<i class="fi fi-br-pen-clip"></i>
@@ -88,7 +88,7 @@
 				</h:panelGroup>
 	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton vistaPreviaInforme-form__bloque-boton--last">
 	        		<i class="fi fi-br-disk"></i>
-	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Guardar" action="#{loginBean.login}" />
+<!-- 	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Guardar" action="#{loginBean.login}" /> -->
 	        	</h:panelGroup>
 
 				<h:panelGroup class="vistaPreviaInforme-form__campos">
@@ -119,7 +119,9 @@
 							</tbody>
 						</table>
 					</h:panelGroup>
-				</h:panelGroup></h:form>
+				</h:panelGroup>
+				</h:panelGroup>
+				</h:form>
     </h:panelGroup>
     <h:panelGroup id="footer">
     	<h:outputText value="Integrantes: Castillo Goicochea Angie Carolina, Gonzales Corzo Abner Jorge, Leon Mondoñedo Joel y Tirado Mendoza Gilmer Alexander."/>
