@@ -34,7 +34,7 @@
 }
 
 .buscarHistoria-form__tabla-contenedor {
-	height: 510px;
+	height: 255px;
 	margin-top: 15px;
 	border-radius: 5px;
 	font-size: 14px;
@@ -51,7 +51,7 @@
 /**/
 
 
-.administrarCuenta-form {
+.examenesConsulta-form {
 	display: flex;
 	flex-direction: column;
 	height: 540px;
@@ -59,7 +59,7 @@
 	margin: 0 0 0 25px;
 }
 
-.administrarCuenta-form__barra-botones {
+.examenesConsulta-form__barra-botones {
 	display: flex;
 	flex-wrap: nowrap;
 	height: 35px;
@@ -67,7 +67,7 @@
 	align-items: center;
 }
 
-.administrarCuenta-form__bloque-boton {
+.examenesConsulta-form__bloque-boton {
 	display: flex;
 	align-items: center;
 	height: 35px;
@@ -80,15 +80,29 @@
 	cursor: pointer;
 }
 
-.administrarCuenta-form__bloque-boton:hover {
+.examenesConsulta-form__bloque-boton:hover {
 	background-color: #C9C9C9;
 }
 
-.administrarCuenta-form__bloque-boton--last {
+.examenesConsulta-form__bloque-boton--last {
 	margin-left: auto; 
 }
 
-.administrarCuenta-form__boton {
+.examenesConsulta-form__selectMenu {
+	height: 55px;
+	border: 0;
+	margin: 0 15px 0 -7.5px;
+	padding: 0 0 0 7.5px;
+	color:  #4C4C4C;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.examenesConsulta-form__selectMenu:focus {
+	outline: none;
+}
+
+.examenesConsulta-form__boton {
 	background-color: transparent;
 	border: 0;
 	margin-right: 15px;
@@ -96,8 +110,7 @@
 	cursor: pointer;
 }
 
-
-.administrarCuenta-form__campos {
+.examenesConsulta-form__campos {
 	display: flex;
 	flex-direction: column;
 	align-content: flex-start;
@@ -117,6 +130,17 @@
 	width: 100%;
 }
 
+
+.borde__campos {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 20px;
+	padding: 10px 20px 0;
+	width: 100%;
+	border: 1px solid  #ACACAC;
+	border-radius: 5px;
+}
+
 .bloque__campos-titulo {
 	width: 100%;
 }
@@ -124,10 +148,11 @@
 .bloque__campos {
 	display: flex;
 	flex-direction: column;
-	min-width: 350px;
+	min-width: 100px;
 	flex-grow: 1;
 	color:  #4C4C4C;
 }
+
 
 .campos__input {
 	height: 30px;
@@ -139,8 +164,15 @@
 }
 
 .campos__output {
-	height: 25px;
+	height: 20px;
 	font-size: 13px;
+}
+
+.bloque__campos--checkbox {
+	flex-direction: row;
+	width: 100%;
+	margin: 0 0 15px 0;
+	color:  #4C4C4C;
 }
 
 .campos__checkbox {
@@ -149,11 +181,16 @@
 	margin: 0 7px 0 0;
 }
 
+.bloque__campos--guardar {
+	flex-grow: 0;
+}
+
 .campos__boton {
-	height: 40px;
-	width: 100%;
-	margin: 15px 0;
+	height: 30px;
+	margin-top: auto;
+	margin-bottom: 15px;
 	border-radius: 5px;
+	width: 150px;
 	border: 0;
 	color: #FFF;
 	background-color: #4C4C4C;

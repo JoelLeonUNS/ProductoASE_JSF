@@ -14,7 +14,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/estiloBase.css" />
 	<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="css/estiloExamenes.css" />
 	<link rel="icon" href="../imagenes/favicon.png"/>
 	<title>Unidad Médica - Medico</title>
 </h:head>
@@ -77,59 +77,174 @@
 				    </h:column>
 				</h:dataTable>
 			</h:panelGroup>
+			<h:panelGroup class="buscarHistoria-form__tabla-contenedor">
+		        <h:dataTable class="buscarHistoria-form__tabla" value="#{miBean.listaDeDatos}" var="dato">
+				    <h:column>
+				        <f:facet name="header">Nro.</f:facet>
+				        <h:outputText value="#{dato.propiedad1}" />
+				    </h:column>
+				    <h:column>
+				        <f:facet name="header">Fecha</f:facet>
+				        <h:outputText value="#{dato.propiedad1}" />
+				    </h:column>
+				    <h:column>
+				        <f:facet name="header">Motivo</f:facet>
+				        <h:outputText value="#{dato.propiedad1}" />
+				    </h:column>
+				</h:dataTable>
+			</h:panelGroup>
 	    </h:form>
-	    <h:form id="administrarCuenta" class="administrarCuenta-form">
-	        <h:panelGroup class="administrarCuenta-form__barra-botones">
-	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
-	        		<i class="fi fi-br-user-add"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Crear cuenta" action="#{loginBean.login}" />
+	    <h:form id="examenesConsulta" class="examenesConsulta-form">
+	        <h:panelGroup class="examenesConsulta-form__barra-botones">
+	        	<h:panelGroup class="examenesConsulta-form__bloque-boton">
+	        		<i class="fi fi-br-calendar-plus"></i>
+	        		<h:commandButton class = "examenesConsulta-form__boton" value = "Nueva Consulta" action="#{loginBean.login}" />
 	        	</h:panelGroup>
-	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
-	        		<i class="fi fi-br-user-pen"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Editar cuenta" action="#{loginBean.login}" />
-	        	</h:panelGroup>
-	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
-	        		<i class="fi fi-br-delete-user"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Desactivar cuenta" action="#{loginBean.login}" />
-	        	</h:panelGroup>
-	        	<h:panelGroup class="administrarCuenta-form__bloque-boton administrarCuenta-form__bloque-boton--last">
+	        	<h:panelGroup class="examenesConsulta-form__bloque-boton">
+		        	<i class="fi fi-br-search-alt"></i>
+		        	<h:selectOneMenu id="tipoDivisa" value="#{ViewModel.tipoDivisa}" class="examenesConsulta-form__selectMenu">
+						<f:selectItem itemLabel="Tipo de Examen" itemValue="0"/>
+						<f:selectItem itemLabel="Examen Médico" itemValue="1" />
+    					<f:selectItem itemLabel="Examen Físico" itemValue="2" />
+    					<f:selectItem itemLabel="Examen Clínico" itemValue="3" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+	        	<h:panelGroup class="examenesConsulta-form__bloque-boton examenesConsulta-form__bloque-boton--last">
 	        		<i class="fi fi-br-disk"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Guardar" action="#{loginBean.login}" />
+	        		<h:commandButton class = "examenesConsulta-form__boton" value = "Guardar" action="#{loginBean.login}" />
 	        	</h:panelGroup>
 	       	</h:panelGroup>
-        	<h:panelGroup class="administrarCuenta-form__campos">
+        	<h:panelGroup class="examenesConsulta-form__campos">
         		<h:panelGroup class="bloque__campos-descripcion">
-        			<h:outputText class="bloque__campos-titulo" value="Datos Personales"/>
-	        		<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="DNI" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Nombre" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Apellidos" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Teléfono" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+        			<h:outputText class="bloque__campos-titulo" value="Historia Clinica: Nro. #{loginBean.login}"/>
+        			<h:panelGroup class = "borde__campos">
+		        		<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Fecha" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Hora" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Edad" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Tiempo de Enfermedad" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Apetito" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Sueño" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Estado de Ánimo" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Sed" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Motivo" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
 	            	</h:panelGroup>
             	</h:panelGroup>
             	<h:panelGroup class="bloque__campos-descripcion">
-            		<h:outputText class="bloque__campos-titulo" value="Cuenta de Usuario"/>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Usuario" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Clave" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+            		<h:outputText class="bloque__campos-titulo" value="Examen: Tipo de Examen"/>
+            		<h:panelGroup class = "borde__campos" rendered="#{miBean.tipoPersona == 'estudiante'}">
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Diagnóstico" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Tratamiento" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Exámenes Auxiliares" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Observación" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos bloque__campos--guardar">
+			        		<h:commandButton class = "campos__boton" value = "Guardar" action="#{loginBean.login}" />
+			        	</h:panelGroup>
+		            </h:panelGroup>
+		            
+		            <h:panelGroup class = "borde__campos" rendered="#{false}">
+		            	<h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="Temperatura" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="P.A." />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="F.R." />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="SPO2" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="Peso" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="Talla" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="F.C." />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="Perímetro Abs" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos" style="width: 100px;">
+			        		<h:outputLabel class = "campos__output" value="IMC" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos" style="flex-grow: 3.5;">
+			        		<h:outputLabel class = "campos__output" value="Observación" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos bloque__campos--guardar">
+			        		<h:commandButton class = "campos__boton" value = "Guardar" action="#{loginBean.login}" />
+			        	</h:panelGroup>
+		            </h:panelGroup>
+		            
+		            <h:panelGroup class = "borde__campos" rendered="#{true}">
+		            	<h:panelGroup class="bloque__campos--checkbox">
+			        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />
+	            			<h:outputLabel class = "campos__output" value="AP Cardiovascular" />
+		            	</h:panelGroup>
+		            	<h:panelGroup class="bloque__campos--checkbox">
+			        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />
+	            			<h:outputLabel class = "campos__output" value="AP Respiratorio" />
+		            	</h:panelGroup>
+			            <h:panelGroup class="bloque__campos">
+			        		<h:outputLabel class = "campos__output" value="Observación" />
+			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            </h:panelGroup>
+			            <h:panelGroup class="bloque__campos bloque__campos--guardar">
+			        		<h:commandButton class = "campos__boton" value = "Guardar" action="#{loginBean.login}" />
+			        	</h:panelGroup>
 		            </h:panelGroup>
 	            </h:panelGroup>
 	        </h:panelGroup>
-
 	    </h:form>
     </h:panelGroup>
     <h:panelGroup id="footer">

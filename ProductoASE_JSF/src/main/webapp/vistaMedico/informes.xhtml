@@ -14,7 +14,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/estiloBase.css" />
 	<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="css/estiloInformes.css" />
 	<link rel="icon" href="../imagenes/favicon.png"/>
 	<title>Unidad Médica - Medico</title>
 </h:head>
@@ -56,80 +56,48 @@
     </h:panelGroup>
     
     <h:panelGroup id="main">
-	    <h:form id="buscarHistoria" class="buscarHistoria-form">
-	        <h:panelGroup class="buscarHistoria-form__barra">
-	        	<h:commandButton class = "buscarHistoria-form__boton" image="../imagenes/busqueda.svg" action="#{loginBean.login}" />
-	            <h:inputText class = "buscarHistoria-form__input" value="#{loginBean.username}" />
-	        </h:panelGroup>
-	        <h:panelGroup class="buscarHistoria-form__tabla-contenedor">
-		        <h:dataTable class="buscarHistoria-form__tabla" value="#{miBean.listaDeDatos}" var="dato">
-				    <h:column>
-				        <f:facet name="header">DNI</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
-				    </h:column>
-				    <h:column>
-				        <f:facet name="header">Nombre</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
-				    </h:column>
-				    <h:column>
-				        <f:facet name="header">Apellido</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
-				    </h:column>
-				</h:dataTable>
+	    <h:form id="detallarInforme" class="detallarInforme-form">
+	        <h:panelGroup class="bloque__campos-descripcion">
+        		<h:outputText class="bloque__campos-titulo" value="Detalles"/>
+		        <h:panelGroup class="bloque__campos">
+		        	<h:outputLabel class = "campos__output" value="Nombre Archivo" />
+		            <h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            </h:panelGroup>
+	            <h:panelGroup class="bloque__campos">
+		        	<h:outputLabel class = "campos__output" value="Descripción" />
+		            <h:inputTextarea class="campos__input campos__textarea" value="#{miBean.texto}" rows="4" cols="40" />
+	            </h:panelGroup>
 			</h:panelGroup>
 	    </h:form>
-	    <h:form id="administrarCuenta" class="administrarCuenta-form">
-	        <h:panelGroup class="administrarCuenta-form__barra-botones">
-	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
-	        		<i class="fi fi-br-user-add"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Crear cuenta" action="#{loginBean.login}" />
+	    <h:form id="vistaPreviaInforme" class="vistaPreviaInforme-form">
+	        <h:panelGroup class="vistaPreviaInforme-form__barra-botones">
+	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton">
+	        		<i class="fi fi-br-add"></i>
+	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Generar Informe" action="#{loginBean.login}" />
 	        	</h:panelGroup>
-	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
-	        		<i class="fi fi-br-user-pen"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Editar cuenta" action="#{loginBean.login}" />
-	        	</h:panelGroup>
-	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
-	        		<i class="fi fi-br-delete-user"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Desactivar cuenta" action="#{loginBean.login}" />
-	        	</h:panelGroup>
-	        	<h:panelGroup class="administrarCuenta-form__bloque-boton administrarCuenta-form__bloque-boton--last">
+	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton">
+		        	<i class="fi fi-br-pen-clip"></i>
+		        	<h:selectOneMenu id="tipoDivisa" value="#{ViewModel.tipoDivisa}" class="vistaPreviaInforme-form__selectMenu">
+						<f:selectItem itemLabel="Tipo de Informe" itemValue="0" />
+						<f:selectItem itemLabel="Atenciones Realizadas" itemValue="1" />
+    					<f:selectItem itemLabel="Alumnos de Pregrado segun escuela" itemValue="2" />
+    					<f:selectItem itemLabel="Pacientes según el sexo" itemValue="3" />
+    					<f:selectItem itemLabel="Triaje de signos vitales de los pacientes" itemValue="4" />
+    					<f:selectItem itemLabel="Triaje de medida de los pacientes" itemValue="5" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton vistaPreviaInforme-form__bloque-boton--last">
 	        		<i class="fi fi-br-disk"></i>
-	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Guardar" action="#{loginBean.login}" />
+	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Guardar" action="#{loginBean.login}" />
 	        	</h:panelGroup>
+	        	
 	       	</h:panelGroup>
-        	<h:panelGroup class="administrarCuenta-form__campos">
+        	<h:panelGroup class="vistaPreviaInforme-form__campos">
         		<h:panelGroup class="bloque__campos-descripcion">
-        			<h:outputText class="bloque__campos-titulo" value="Datos Personales"/>
-	        		<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="DNI" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Nombre" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Apellidos" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Teléfono" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-            	</h:panelGroup>
-            	<h:panelGroup class="bloque__campos-descripcion">
-            		<h:outputText class="bloque__campos-titulo" value="Cuenta de Usuario"/>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Usuario" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Clave" />
-		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-		            </h:panelGroup>
-	            </h:panelGroup>
+        			<h:outputText class="bloque__campos-titulo" value="Título: Nombre de la Tabla."/>
+        			<!-- Aqui la tabla -->
+        		</h:panelGroup>
 	        </h:panelGroup>
-
 	    </h:form>
     </h:panelGroup>
     <h:panelGroup id="footer">
