@@ -35,12 +35,14 @@ public class MySqlPacienteDAO extends PacienteDAO<Paciente> {
             getPs().setString(12, obj.getEstadoCivil());
             getPs().setString(13, obj.getTipoPaciente());
             
-            if (obj instanceof Alumno alumno) {
-                getPs().setInt(14, (alumno.getEscuela().getIdEscuela()));
+            if (obj instanceof Alumno) {
+                Alumno alumno = (Alumno) obj;
+                getPs().setInt(14, alumno.getEscuela().getIdEscuela());
                 getPs().setNull(15, java.sql.Types.VARCHAR);
                 getPs().setNull(16, java.sql.Types.BOOLEAN);
             }
-            if (obj instanceof Trabajador trabajador) {
+            if (obj instanceof Trabajador) {
+                Trabajador trabajador = (Trabajador) obj;
                 getPs().setNull(14, java.sql.Types.INTEGER);
                 getPs().setString(15, trabajador.getAreaTrabajo());
                 getPs().setBoolean(16, trabajador.isDocente());
@@ -95,16 +97,19 @@ public class MySqlPacienteDAO extends PacienteDAO<Paciente> {
             getPs().setString(11, obj.getEstadoCivil());
             getPs().setString(12, obj.getTipoPaciente());
             
-            if (obj instanceof Alumno alumno) {
-                getPs().setInt(13, (alumno.getEscuela().getIdEscuela()));
+            if (obj instanceof Alumno) {
+                Alumno alumno = (Alumno) obj;
+                getPs().setInt(13, alumno.getEscuela().getIdEscuela());
                 getPs().setNull(14, java.sql.Types.VARCHAR);
                 getPs().setNull(15, java.sql.Types.BOOLEAN);
             }
-            if (obj instanceof Trabajador trabajador) {
+            if (obj instanceof Trabajador) {
+                Trabajador trabajador = (Trabajador) obj;
                 getPs().setNull(13, java.sql.Types.INTEGER);
                 getPs().setString(14, trabajador.getAreaTrabajo());
                 getPs().setBoolean(15, trabajador.isDocente());
             }
+            
             DAOFactory dao = new MySqlDAOFactory();
             for (Map.Entry<Integer, Familiar> familiar : obj.getFamiliares().entrySet()) {
                 dao.getFamiliar().update(familiar.getValue());
@@ -131,14 +136,16 @@ public class MySqlPacienteDAO extends PacienteDAO<Paciente> {
 
             if (getRs().next()) {
                 switch (getRs().getString("tipoPaciente")) {
-                    case "Alumno" -> {
+                    case "Alumno" : {
                         paciente = new Alumno();
                         ((Alumno) paciente).setEscuela(Escuela.getPorId(getRs().getInt("idEscuela")));
+                        break;
                     }
-                    case "Trabajador" -> {
+                    case "Trabajador" : {
                         paciente = new Trabajador();
                         ((Trabajador) paciente).setAreaTrabajo(getRs().getString("areaTrabajo"));
                         ((Trabajador) paciente).setDocente(getRs().getBoolean("docente"));
+                        break;
                     }
                 }
                 if (paciente != null) {
@@ -177,17 +184,18 @@ public class MySqlPacienteDAO extends PacienteDAO<Paciente> {
             while (getRs().next()) {
                 Paciente paciente = null;
                 switch (getRs().getString("tipoPaciente")) {
-                    case "Alumno" -> {
+                    case "Alumno" : {
                         paciente = new Alumno();
                         ((Alumno) paciente).setEscuela(Escuela.getPorId(getRs().getInt("idEscuela")));
+                        break;
                     }
-                    case "Trabajador" -> {
+                    case "Trabajador" : {
                         paciente = new Trabajador();
                         ((Trabajador) paciente).setAreaTrabajo(getRs().getString("areaTrabajo"));
                         ((Trabajador) paciente).setDocente(getRs().getBoolean("docente"));
+                        break;
                     }
-                    default -> {
-                    }
+                    
                 }
                 if (paciente != null) {
                     paciente.setIdPaciente(getRs().getInt("idPaciente"));

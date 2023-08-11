@@ -1,7 +1,7 @@
 package modelo;
 
 import factoryDAO.DAOFactory;
-import factoryDAO.SqlServerDAOFactory;
+import factoryDAO.MySqlDAOFactory;
 import java.util.List;
 import medicos.Usuario;
 
@@ -15,7 +15,7 @@ public class ModeloUsuario {
 
     public ModeloUsuario() {
         usuario = new Usuario();
-        this.dao = new SqlServerDAOFactory(); // o MySql
+        this.dao = new MySqlDAOFactory(); // o MySql
     }
  
     public Usuario getUsuario() {

@@ -1,7 +1,7 @@
 package modelo;
 
 import factoryDAO.DAOFactory;
-import factoryDAO.SqlServerDAOFactory;
+import factoryDAO.MySqlDAOFactory;
 import historias.HistoriaClinica;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class ModeloHistoriaClinica {
 
     public ModeloHistoriaClinica() {
         resetModelo("Paciente");
-        this.dao = new SqlServerDAOFactory(); // o MySql
+        this.dao = new MySqlDAOFactory(); // o MySql
     }
 
     public final void resetModelo(String tipoPaciente) {

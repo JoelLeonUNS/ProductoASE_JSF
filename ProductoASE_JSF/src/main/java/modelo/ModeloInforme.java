@@ -4,12 +4,12 @@
  */
 package modelo;
 
-import conexiones.SqlServerConexion;
+import conexiones.MySqlConexion;
 import consultas.ConsultaMedica;
 import examenes.Examen;
 import examenesMedico.ExamenMedico;
 import factoryDAO.DAOFactory;
-import factoryDAO.SqlServerDAOFactory;
+import factoryDAO.MySqlDAOFactory;
 import historias.HistoriaClinica;
 import java.sql.Connection;
 import java.util.*;
@@ -28,11 +28,11 @@ public class ModeloInforme {
 
     private DAOFactory dao;
     private ModeloConsulta mConsulta;
-    private SqlServerConexion conexion;
+    private MySqlConexion conexion;
 
     public ModeloInforme() {
-        this.dao = new SqlServerDAOFactory();
-        this.dao = new SqlServerDAOFactory();
+        this.dao = new MySqlDAOFactory();
+        this.dao = new MySqlDAOFactory();
         this.mConsulta = new ModeloConsulta();
     }
 
@@ -111,7 +111,7 @@ public class ModeloInforme {
     public List<Object[]> obtenerInforme3() {
         List<Object[]> datosInforme3 = new ArrayList<>();
         try {
-            Connection connection = SqlServerConexion.getInstance(); // Obtener la conexión desde tu clase SqlServerConexion
+            Connection connection = MySqlConexion.getInstance(); // Obtener la conexión desde tu clase MySqlConexion
 
             String consultaSQL = "SELECT tipoPaciente, condicion, sexo, "
                     + "COUNT(*) AS cantidad, "

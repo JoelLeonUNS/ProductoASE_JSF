@@ -10,7 +10,7 @@ import examenesFisico.ExamenFisicoManager;
 import examenesMedico.ExamenMedico;
 import examenesMedico.ExamenMedicoManager;
 import factoryDAO.DAOFactory;
-import factoryDAO.SqlServerDAOFactory;
+import factoryDAO.MySqlDAOFactory;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class ModeloExamen {
     private ExamenClinico examenClinicoTmp;
 
     public ModeloExamen() {
-        this.dao = new SqlServerDAOFactory();
+        this.dao = new MySqlDAOFactory();
     }
 
     public Examen getExamen() {

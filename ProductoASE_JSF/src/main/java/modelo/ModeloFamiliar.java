@@ -1,7 +1,7 @@
 package modelo;
 
 import factoryDAO.DAOFactory;
-import factoryDAO.SqlServerDAOFactory;
+import factoryDAO.MySqlDAOFactory;
 import pacientes.Familiar;
 
 public class ModeloFamiliar {
@@ -10,7 +10,7 @@ public class ModeloFamiliar {
 
     public ModeloFamiliar() {
         resetModeloFamiliar();
-        this.dao = new SqlServerDAOFactory(); // o MySql
+        this.dao = new MySqlDAOFactory(); // o MySql
     }
     
     public final void resetModeloFamiliar() {

@@ -2,7 +2,7 @@
 package modelo;
 
 import factoryDAO.DAOFactory;
-import factoryDAO.SqlServerDAOFactory;
+import factoryDAO.MySqlDAOFactory;
 import java.util.ArrayList;
 import java.util.List;
 import medicos.Medico;
@@ -15,7 +15,7 @@ public class ModeloMedico {
     private ArrayList<Integer> idMedicos;
 
     public ModeloMedico() {
-        this.dao = new SqlServerDAOFactory();
+        this.dao = new MySqlDAOFactory();
         this.medico = new Medico();
         medico.setUsuario(new Usuario());
     }
