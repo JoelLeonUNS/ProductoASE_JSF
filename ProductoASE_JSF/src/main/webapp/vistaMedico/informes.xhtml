@@ -77,7 +77,7 @@
 	        	</h:panelGroup>
 	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton">
 		        	<i class="fi fi-br-pen-clip"></i>
-		        	<h:selectOneMenu id="tipoDivisa" value="#{ViewModel.tipoDivisa}" class="vistaPreviaInforme-form__selectMenu">
+		        	<h:selectOneMenu id="tipoInforme" value="#{BeanInforme.opcionSeleccionada}" class="vistaPreviaInforme-form__selectMenu">
 						<f:selectItem itemLabel="Tipo de Informe" itemValue="0" />
 						<f:selectItem itemLabel="Atenciones Realizadas" itemValue="1" />
     					<f:selectItem itemLabel="Alumnos de Pregrado segun escuela" itemValue="2" />
@@ -90,15 +90,36 @@
 	        		<i class="fi fi-br-disk"></i>
 	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Guardar" action="#{loginBean.login}" />
 	        	</h:panelGroup>
-	        	
-	       	</h:panelGroup>
-        	<h:panelGroup class="vistaPreviaInforme-form__campos">
-        		<h:panelGroup class="bloque__campos-descripcion">
-        			<h:outputText class="bloque__campos-titulo" value="Título: Nombre de la Tabla."/>
-        			<!-- Aqui la tabla -->
-        		</h:panelGroup>
-	        </h:panelGroup>
-	    </h:form>
+
+				<h:panelGroup class="vistaPreviaInforme-form__campos">
+					<h:panelGroup class="bloque__campos-descripcion">
+						<h:outputText class="bloque__campos-titulo"
+							value="Título: Nombre de la Tabla." />
+						<table>
+							<thead>
+								<tr>
+									<ui:repeat value="#{BeanInforme.encabezadosTabla}"
+										var="encabezado">
+										<th><h:outputText value="#{encabezado}" /></th>
+									</ui:repeat>
+								</tr>
+							</thead>
+							<tbody>
+								<ui:repeat value="#{BeanInforme.datosTabla}" var="dato">
+									<tr>
+										<ui:repeat value="#{BeanInforme.datosTabla}" var="fila">
+											<tr>
+												<ui:repeat value="#{fila}" var="valor">
+													<td><h:outputText value="#{valor}" /></td>
+												</ui:repeat>
+											</tr>
+										</ui:repeat>
+									</tr>
+								</ui:repeat>
+							</tbody>
+						</table>
+					</h:panelGroup>
+				</h:panelGroup></h:form>
     </h:panelGroup>
     <h:panelGroup id="footer">
     	<h:outputText value="Integrantes: Castillo Goicochea Angie Carolina, Gonzales Corzo Abner Jorge, Leon Mondoñedo Joel y Tirado Mendoza Gilmer Alexander."/>

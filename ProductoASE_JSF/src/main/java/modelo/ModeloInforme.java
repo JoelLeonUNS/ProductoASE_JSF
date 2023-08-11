@@ -72,8 +72,8 @@ public class ModeloInforme {
             if (paciente instanceof Alumno) {
                 Alumno alumno = (Alumno) paciente;
                 String escuela = alumno.getEscuela().getNombre();
-                String facultad = alumno.getEscuela().getFacultad(); // Obtener nombre de la facultad
-                String escuelaConFacultad = escuela + " - " + facultad; // Combinar escuela y facultad
+                String facultad = alumno.getEscuela().getFacultad(); 
+                String escuelaConFacultad = escuela + " - " + facultad; 
                 String sexo = alumno.getSexo();
 
                 datosPorEscuela.putIfAbsent(escuelaConFacultad, new Integer[]{0, 0});
@@ -90,12 +90,12 @@ public class ModeloInforme {
         List<Object[]> datosAlumnos = new ArrayList<>();
         for (String escuelaConFacultad : datosPorEscuela.keySet()) {
             Integer[] generoData = datosPorEscuela.get(escuelaConFacultad);
-            String[] escuelaYFacultad = escuelaConFacultad.split(" - "); // Separar escuela y facultad
+            String[] escuelaYFacultad = escuelaConFacultad.split(" - ");
             Object[] datos = new Object[]{
-                escuelaYFacultad[1], // Nombre de la escuela
-                escuelaYFacultad[0], // Nombre de la facultad
-                generoData[0], // Masculino
-                generoData[1], // Femenino
+                escuelaYFacultad[1], 
+                escuelaYFacultad[0], 
+                generoData[0],
+                generoData[1], 
                 generoData[0] + generoData[1] // Total
             };
             datosAlumnos.add(datos);
@@ -107,7 +107,7 @@ public class ModeloInforme {
     public List<Object[]> obtenerInforme3() {
         List<Object[]> datosInforme3 = new ArrayList<>();
         try {
-            Connection connection = SqlServerConexion.getInstance(); // Obtener la conexión desde tu clase SqlServerConexion
+            Connection connection = SqlServerConexion.getInstance(); 
 
             String consultaSQL = "SELECT tipoPaciente, condicion, sexo, "
                     + "COUNT(*) AS cantidad, "
@@ -132,7 +132,7 @@ public class ModeloInforme {
             ResultSet resultSet = statement.executeQuery(consultaSQL);
 
             while (resultSet.next()) {
-                Object[] fila = new Object[5]; // Ajustar el tamaño según la cantidad de columnas
+                Object[] fila = new Object[5]; 
 
                 fila[0] = resultSet.getString("tipoPaciente");
                 fila[1] = resultSet.getString("condicion");
