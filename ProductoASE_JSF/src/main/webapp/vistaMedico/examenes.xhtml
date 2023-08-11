@@ -158,7 +158,7 @@
             	</h:panelGroup>
             	<h:panelGroup class="bloque__campos-descripcion">
             		<h:outputText class="bloque__campos-titulo" value="Examen: Tipo de Examen"/>
-            		<h:panelGroup class = "borde__campos" rendered="#{miBean.tipoPersona == 'estudiante'}">
+            		<h:panelGroup class = "borde__campos" rendered="#{false}">
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Diagnóstico" />
 			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
@@ -180,7 +180,7 @@
 			        	</h:panelGroup>
 		            </h:panelGroup>
 		            
-		            <h:panelGroup class = "borde__campos" rendered="#{false}">
+		            <h:panelGroup class = "borde__campos" rendered="#{true}">
 		            	<h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="Temperatura" />
 			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
@@ -226,7 +226,7 @@
 			        	</h:panelGroup>
 		            </h:panelGroup>
 		            
-		            <h:panelGroup class = "borde__campos" rendered="#{true}">
+		            <h:panelGroup class = "borde__campos" rendered="#{false}">
 		            	<h:panelGroup class="bloque__campos--checkbox">
 			        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />
 	            			<h:outputLabel class = "campos__output" value="AP Cardiovascular" />

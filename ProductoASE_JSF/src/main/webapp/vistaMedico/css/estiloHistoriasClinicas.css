@@ -51,7 +51,7 @@
 /**/
 
 
-.administrarCuenta-form {
+.historiasClinicas-form {
 	display: flex;
 	flex-direction: column;
 	height: 540px;
@@ -59,7 +59,7 @@
 	margin: 0 0 0 25px;
 }
 
-.administrarCuenta-form__barra-botones {
+.historiasClinicas-form__barra-botones {
 	display: flex;
 	flex-wrap: nowrap;
 	height: 35px;
@@ -67,7 +67,7 @@
 	align-items: center;
 }
 
-.administrarCuenta-form__bloque-boton {
+.historiasClinicas-form__bloque-boton {
 	display: flex;
 	align-items: center;
 	height: 35px;
@@ -80,15 +80,29 @@
 	cursor: pointer;
 }
 
-.administrarCuenta-form__bloque-boton:hover {
+.historiasClinicas-form__bloque-boton:hover {
 	background-color: #C9C9C9;
 }
 
-.administrarCuenta-form__bloque-boton--last {
+.historiasClinicas-form__bloque-boton--last {
 	margin-left: auto; 
 }
 
-.administrarCuenta-form__boton {
+.historiasClinicas-form__selectMenu {
+	height: 55px;
+	border: 0;
+	margin: 0 15px 0 -7.5px;
+	padding: 0 0 0 7.5px;
+	color:  #4C4C4C;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.historiasClinicas-form__selectMenu:focus {
+	outline: none;
+}
+
+.historiasClinicas-form__boton {
 	background-color: transparent;
 	border: 0;
 	margin-right: 15px;
@@ -97,7 +111,7 @@
 }
 
 
-.administrarCuenta-form__campos {
+.historiasClinicas-form__campos {
 	display: flex;
 	flex-direction: column;
 	align-content: flex-start;
@@ -124,8 +138,7 @@
 .bloque__campos {
 	display: flex;
 	flex-direction: column;
-	min-width: 350px;
-	flex-grow: 1;
+	min-width: 200px;
 	color:  #4C4C4C;
 }
 
@@ -139,7 +152,7 @@
 }
 
 .campos__output {
-	height: 25px;
+	height: 20px;
 	font-size: 13px;
 }
 
