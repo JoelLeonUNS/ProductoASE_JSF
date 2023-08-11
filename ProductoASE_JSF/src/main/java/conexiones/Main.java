@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class Main {
 	public static void main (String[]args) throws SQLException {
-		SqlServerConexion.setDatos("localhost", "1433", "UnidadMedica", "sa", "halamadrid");
+		SqlServerConexion.setDatos("localhost", "1433", "UnidadMedica", "sa", "castillo");
 		Connection conexion = SqlServerConexion.getInstance();
 		
 		if(conexion!=null) {
