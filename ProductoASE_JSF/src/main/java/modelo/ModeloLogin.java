@@ -1,11 +1,12 @@
 package modelo;
 
+import conexiones.MySqlConexion;
 import factoryDAO.DAOFactory;
 import factoryDAO.MySqlDAOFactory;
 import java.util.List;
 import medicos.Usuario;
 
-public class ModeloUsuario {
+public class ModeloLogin {
     private final DAOFactory dao;
     private Usuario usuario;
     private int numeroIntentos;
@@ -13,9 +14,10 @@ public class ModeloUsuario {
     private final CareTaker careTaker = new CareTaker();
     private String recuerdoSesion; // usuario;clave
 
-    public ModeloUsuario() {
+    public ModeloLogin() {
         usuario = new Usuario();
         this.dao = new MySqlDAOFactory(); // o MySql
+        MySqlConexion.setDatos("localhost", "3306", "UnidadMedica", "root", "02122002");	
     }
  
     public Usuario getUsuario() {
@@ -49,7 +51,7 @@ public class ModeloUsuario {
     public boolean isHabilitado() {
         return usuario.isEstado(); //
     }
-
+    
     public void iniciarSesion() {
         for(Usuario usuarioBD: (List<Usuario>)dao.getUsuario().listed()) {
             if (usuarioBD.getUsuario().equals(usuario.getUsuario())

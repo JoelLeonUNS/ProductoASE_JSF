@@ -38,7 +38,11 @@ public class ModeloMedico {
         this.medico = medico;
     }
  
-    public Medico buscarMedicoDNI(String dni){
+    public Medico getMedico() {
+		return medico;
+	}
+
+	public Medico buscarMedicoDNI(String dni){
         for(Medico medicoBD: (List<Medico>)dao.getMedico().listed()) {
             if (medicoBD.getDNI().equals(dni)) {
                 idMedico = medicoBD.getIdMedico();

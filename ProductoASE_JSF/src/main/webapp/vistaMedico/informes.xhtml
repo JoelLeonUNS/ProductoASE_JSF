@@ -88,14 +88,15 @@
 				</h:panelGroup>
 	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton vistaPreviaInforme-form__bloque-boton--last">
 	        		<i class="fi fi-br-disk"></i>
-<!-- 	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Guardar" action="#{loginBean.login}" /> -->
+ 	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Guardar" action="#{loginBean.login}" /> 
 	        	</h:panelGroup>
-
+			</h:panelGroup>
 				<h:panelGroup class="vistaPreviaInforme-form__campos">
 					<h:panelGroup class="bloque__campos-descripcion">
-						<h:outputText class="bloque__campos-titulo"
-							value="Título: Nombre de la Tabla." />
-						<table>
+						<h:outputText class="bloque__campos-titulo" value="Título: Nombre de la Tabla." />
+					</h:panelGroup>
+					<h:panelGroup class="vistaPreviaInforme-form__tabla-contenedor">
+						<table class = "bloque__tabla">
 							<thead>
 								<tr>
 									<ui:repeat value="#{BeanInforme.encabezadosTabla}"
@@ -104,24 +105,23 @@
 									</ui:repeat>
 								</tr>
 							</thead>
-							<tbody>
-								<ui:repeat value="#{BeanInforme.datosTabla}" var="dato">
-									<tr>
-										<ui:repeat value="#{BeanInforme.datosTabla}" var="fila">
-											<tr>
-												<ui:repeat value="#{fila}" var="valor">
-													<td><h:outputText value="#{valor}" /></td>
-												</ui:repeat>
-											</tr>
-										</ui:repeat>
-									</tr>
-								</ui:repeat>
-							</tbody>
-						</table>
-					</h:panelGroup>
+								<tbody>
+									<ui:repeat value="#{BeanInforme.datosTabla}" var="dato">
+										<tr>
+											<ui:repeat value="#{BeanInforme.datosTabla}" var="fila">
+												<tr>
+													<ui:repeat value="#{fila}" var="valor">
+														<td><h:outputText value="#{valor}" /></td>
+													</ui:repeat>
+												</tr>
+											</ui:repeat>
+										</tr>
+									</ui:repeat>
+								</tbody>
+							</table>
 				</h:panelGroup>
-				</h:panelGroup>
-				</h:form>
+			</h:panelGroup>
+		</h:form>
     </h:panelGroup>
     <h:panelGroup id="footer">
     	<h:outputText value="Integrantes: Castillo Goicochea Angie Carolina, Gonzales Corzo Abner Jorge, Leon Mondoñedo Joel y Tirado Mendoza Gilmer Alexander."/>
