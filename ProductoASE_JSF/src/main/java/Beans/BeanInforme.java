@@ -23,13 +23,14 @@ public class BeanInforme implements Serializable{
 	private ModeloInforme modeloInforme;
 	private PDFGenerator pdf;
 	private String nombreInforme;
+
 	
     public BeanInforme() {
         modeloInforme = new ModeloInforme();
     }
 
 
-    public String[] getEncabezadosTabla() {
+	public String[] getEncabezadosTabla() {
         if ("1".equals(opcionSeleccionada)) {
             return new String[]{"Fecha", "Apellidos y Nombres", "Edad", "Genero", "Diagnostico"};
         } else if ("2".equals(opcionSeleccionada)) {
@@ -85,6 +86,8 @@ public class BeanInforme implements Serializable{
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(mensaje));
     }
+
+
 
 
 }
