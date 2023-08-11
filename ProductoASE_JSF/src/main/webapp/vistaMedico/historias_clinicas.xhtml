@@ -98,11 +98,14 @@
 	        	</h:panelGroup>
 	       	</h:panelGroup>
         	<h:panelGroup class="historiasClinicas-form__campos">
-        		<h:panelGroup class="bloque__campos-descripcion">
-        			<h:outputText class="bloque__campos-titulo" value="Historia Clínica: Nro. "/>
-        			<h:outputText class="bloque__campos-titulo" value="Condición: "/>
-	        		<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="DNI" />
+        	
+        		<h:panelGroup class="bloque__campos-descripcion" rendered="#{false}">
+	        		<h:panelGroup class="bloque__campos-titulo">
+	        			<b><h:outputText  value="Historia Clínica: Nro. "/></b><h:outputText  value=" "/>
+        				<b><h:outputText value="Condición: "/></b><h:outputText  value="Estudiante"/>
+	        		</h:panelGroup>        			
+	        		<h:panelGroup class="bloque__campos" style="width:125px;">
+		        		<h:outputLabel class = "campos__output" value="DNI"/>
 		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
 	            	</h:panelGroup>
 	            	<h:panelGroup class="bloque__campos">
@@ -117,6 +120,13 @@
 		        		<h:outputLabel class = "campos__output" value="Teléfono" />
 		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
 	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+	            		<h:outputLabel class = "campos__output" value="Sexo" />
+			        	<h:selectOneRadio id="tipoSexo" value="#{ViewModel.tipoDivisa}" layout="pageDirection" class="campos__radioGroup">
+					        <f:selectItem itemLabel="M" itemValue="0"/>
+					        <f:selectItem itemLabel="F" itemValue="1" />
+					    </h:selectOneRadio>
+					</h:panelGroup>
 	            	<h:panelGroup class="bloque__campos">
 		        		<h:outputLabel class = "campos__output" value="Fecha Nac." />
 		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
@@ -137,34 +147,183 @@
 		        		<h:outputLabel class = "campos__output" value="Dirección" />
 		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
 	            	</h:panelGroup>
-	            	<h:panelGroup class="historiasClinicas-form__bloque-boton">
-			        	<h:selectOneMenu id="tipoCarrera" value="#{ViewModel.tipoDivisa}" class="historiasClinicas-form__selectMenu">
-							<f:selectItem itemLabel="Escuela" itemValue="0"/>
-							<f:selectItem itemLabel="Estudiante" itemValue="1" />
-	    					<f:selectItem itemLabel="Trabajador" itemValue="2" />
+	            	<h:panelGroup class="bloque__campos">
+	            		<h:outputLabel class = "campos__output" value="E.A.P." />
+			        	<h:selectOneMenu id="tipoCarrera" value="#{ViewModel.tipoDivisa}" class="campos__selectMenu">
+							<f:selectItem itemLabel="Ingeniería de Sistemas e Informática" itemValue="1" />
+	    					<f:selectItem itemLabel="Ingeniería Civil" itemValue="2" />
 						</h:selectOneMenu>
 					</h:panelGroup>
-					<h:outputText class="bloque__campos-titulo" value="Historia Clínica: Nro. "/>
-	            	
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Usuario" />
+					<h:panelGroup class="bloque__campos">
+						<h:outputLabel class = "campos__output" value="Estado Civil" />
+			        	<h:selectOneMenu id="tipoEstadoCivil" value="#{ViewModel.tipoDivisa}" class="campos__selectMenu">
+							<f:selectItem itemLabel="Soltero" itemValue="1"/>
+							<f:selectItem itemLabel="Casado" itemValue="2" />
+	    					<f:selectItem itemLabel="Viudo" itemValue="3" />
+	    					<f:selectItem itemLabel="Diverciado" itemValue="4" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+				</h:panelGroup>
+				
+				<h:panelGroup class="bloque__campos-descripcion" rendered="#{true}">
+	        		<h:panelGroup class="bloque__campos-titulo">
+	        			<b><h:outputText  value="Historia Clínica: Nro. "/></b><h:outputText  value=" "/>
+        				<b><h:outputText value="Condición: "/></b><h:outputText  value="Trabajador"/>
+	        		</h:panelGroup>        			
+	        		<h:panelGroup class="bloque__campos" style="width:125px;">
+		        		<h:outputLabel class = "campos__output" value="DNI"/>
 		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
 	            	</h:panelGroup>
-	            	
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Apellidos" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Nombres" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Teléfono" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+	            		<h:outputLabel class = "campos__output" value="Sexo" />
+			        	<h:selectOneRadio id="tipoSexoTrabajador" value="#{ViewModel.tipoDivisa}" layout="pageDirection" class="campos__radioGroup">
+					        <f:selectItem itemLabel="M" itemValue="0"/>
+					        <f:selectItem itemLabel="F" itemValue="1" />
+					    </h:selectOneRadio>
+					</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Fecha Nac." />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Lugar Nac." />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Distrito" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Departamento" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Dirección" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Area de Trabajo" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
+	            	<h:panelGroup class="bloque__campos" style ="width:0px;">
+	            		<h:outputLabel class = "campos__output" value="Docente" />
+			        	<h:selectOneRadio id="tipoDocente" value="#{ViewModel.tipoDivisa}" layout="pageDirection" class="campos__radioGroup">
+					        <f:selectItem itemLabel="Si" itemValue="0"/>
+					        <f:selectItem itemLabel="No" itemValue="1" />
+					    </h:selectOneRadio>
+					</h:panelGroup>
+					<h:panelGroup class="bloque__campos">
+						<h:outputLabel class = "campos__output" value="Estado Civil" />
+			        	<h:selectOneMenu id="tipoEstadoCivilTrabajador" value="#{ViewModel.tipoDivisa}" class="campos__selectMenu">
+							<f:selectItem itemLabel="Soltero" itemValue="1"/>
+							<f:selectItem itemLabel="Casado" itemValue="2" />
+	    					<f:selectItem itemLabel="Viudo" itemValue="3" />
+	    					<f:selectItem itemLabel="Diverciado" itemValue="4" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+				</h:panelGroup>
+				
+				<h:panelGroup class="bloque__campos-descripcion bloque__campos-descripcion--columna">
+					<h:outputText class="bloque__campos-titulo" value="Antecedentes Patológicos"/>
+					<h:panelGroup class="bloque-checkboxs">
+						<h:outputLabel class = "campos__output" value="Saranpión" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Faringitis" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Miopía" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Varicela" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	         
+						<h:outputLabel class = "campos__output" value="Amigdalitis" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	  
+						<h:outputLabel class = "campos__output" value="Hipertensión Art." />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Tifoidea" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Cólera" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />
+						<h:outputLabel class = "campos__output" value="Soplo Cardiaco" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Hepatitis" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />		       
+						<h:outputLabel class = "campos__output" value="Parásitos" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />		       
+						<h:outputLabel class = "campos__output" value="Insuficiencia Urin." />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Gonorrea" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />		        
+						<h:outputLabel class = "campos__output" value="Alergias" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	        	
+						<h:outputLabel class = "campos__output" value="Quiste Ovario" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Sífilis" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />		    
+						<h:outputLabel class = "campos__output" value="Anemia" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Desmayos" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	     
+						<h:outputLabel class = "campos__output" value="Tuberculosis" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />		      
+						<h:outputLabel class = "campos__output" value="Fracturas" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Hongos piel, uña" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	   
+						<h:outputLabel class = "campos__output" value="Neumonía" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Operaciones" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
+						<h:outputLabel class = "campos__output" value="Transf. Sanguínea" />
+		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	 	
+	            	</h:panelGroup>
+            		<h:panelGroup class="bloque__campos bloque__campos--fila">
+	        			<h:outputLabel class = "campos__output" value="Otros" />
+	            		<h:inputText class = "campos__input campos__input--fila" value="#{loginBean.username}" />
+            		</h:panelGroup>
             	</h:panelGroup>
-            	<h:panelGroup class="bloque__campos-descripcion">
-            		<h:outputText class="bloque__campos-titulo" value="Cuenta de Usuario"/>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Usuario" />
+         		<h:panelGroup class="bloque__campos-descripcion bloque__campos-descripcion--mitad">
+					<h:outputText class="bloque__campos-titulo" value="Antecedentes Familiares"/>
+            		<h:panelGroup class="bloque__campos">
+            			<h:outputLabel class = "campos__output" value="Parentesco" />
+			        	<h:selectOneMenu id="tipoParentesco" value="#{ViewModel.tipoDivisa}" class="campos__selectMenu">
+							<f:selectItem itemLabel="Padre" itemValue="0"/>
+							<f:selectItem itemLabel="Madre" itemValue="1" />
+	    					<f:selectItem itemLabel="Hermano" itemValue="2" />
+	    					<f:selectItem itemLabel="Hermana" itemValue="2" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+					<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Nombres" />
 		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-	            	</h:panelGroup>
-	            	<h:panelGroup class="bloque__campos">
-		        		<h:outputLabel class = "campos__output" value="Clave" />
+            		</h:panelGroup>
+            		<h:panelGroup class="bloque__campos" >
+		        		<h:outputLabel class = "campos__output" value="Dirección" />
 		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
-		            </h:panelGroup>
-	            </h:panelGroup>
-	        </h:panelGroup>
-
+            		</h:panelGroup>
+            		<h:panelGroup class="bloque__campos" style ="width:100px;">
+		        		<h:outputLabel class = "campos__output" value="Telefono" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+            		</h:panelGroup>
+            		<h:panelGroup class="bloque__campos" >
+		        		<h:outputLabel class = "campos__output" value="Antecedentes" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+            		</h:panelGroup>
+            		<h:panelGroup class="bloque__campos bloque__campos--guardar">
+		        		<h:commandButton class = "campos__boton" value = "Guardar" action="#{loginBean.login}" />
+		        	</h:panelGroup>
+            	</h:panelGroup>	
+           	</h:panelGroup>
 	    </h:form>
     </h:panelGroup>
     <h:panelGroup id="footer">
