@@ -3,6 +3,8 @@ package Beans;
 import modelo.ModeloMedico;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
@@ -16,6 +18,7 @@ public class BeanInterfazAdmin implements Serializable {
     private ModeloMedico modelo;
     private String tipoGuardado;
     private String valorBuscado;
+    private List<Medico> listaMedicos;
 
     public BeanInterfazAdmin() {
        
@@ -118,8 +121,15 @@ public class BeanInterfazAdmin implements Serializable {
         this.valorBuscado = valorBuscado;
     }
     
-    
-    //Metodos Actuales
+    public List<Medico> getListaMedicos() {
+		return listaMedicos;
+	}
+
+	public void setListaMedicos(List<Medico> listaMedicos) {
+		this.listaMedicos = listaMedicos;
+	}
+
+	//Metodos Actuales
     public void setDatosMedico(String dni, String nombre, String apellidos, String telefono){
         modelo.setDatosMedico(dni, nombre, apellidos, telefono);
     }
@@ -132,9 +142,9 @@ public class BeanInterfazAdmin implements Serializable {
         return modelo.buscarMedicoDNI(dni);
     }
     
-    public ArrayList<Medico> buscarMedicoCoincidente(String cadena){
-        modelo.buscarMedicoCoincidente(cadena);
-        return modelo.getMedicosCoincidentesBD();
+    public void buscarMedicoCoincidente(ActionEvent event){
+        modelo.buscarMedicoCoincidente(valorBuscado);
+        this.listaMedicos = modelo.getMedicosCoincidentesBD();
     }
     
     public void registrar(){

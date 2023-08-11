@@ -46,22 +46,22 @@
     <h:panelGroup id="main">
 	    <h:form id="buscarHistoria" class="buscarHistoria-form">
 	        <h:panelGroup class="buscarHistoria-form__barra">
-	        	<h:commandButton class = "buscarHistoria-form__boton" image="../imagenes/busqueda.svg" action="#{loginBean.login}" />
-	            <h:inputText class = "buscarHistoria-form__input" value="#{loginBean.username}" />
+	        	<h:commandButton class = "buscarHistoria-form__boton" image="../imagenes/busqueda.svg" actionListener="#{BeanInterfazAdmin.buscarMedicoCoincidente}" />
+	            <h:inputText class = "buscarHistoria-form__input" value="#{BeanInterfazAdmin.valorBuscado}" />
 	        </h:panelGroup>
 	        <h:panelGroup class="buscarHistoria-form__tabla-contenedor">
-		        <h:dataTable class="buscarHistoria-form__tabla" value="#{miBean.listaDeDatos}" var="dato">
+		        <h:dataTable class="buscarHistoria-form__tabla" value="#{BeanInterfazAdmin.listaMedicos}" var="medico">
 				    <h:column>
 				        <f:facet name="header">DNI</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
+				        <h:outputText value="#{medico.DNI}" />
 				    </h:column>
 				    <h:column>
 				        <f:facet name="header">Nombre</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
+				        <h:outputText value="#{medico.nombreMedico}" />
 				    </h:column>
 				    <h:column>
 				        <f:facet name="header">Apellido</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
+				        <h:outputText value="#{medico.apellidoMedico}" />
 				    </h:column>
 				</h:dataTable>
 			</h:panelGroup>
