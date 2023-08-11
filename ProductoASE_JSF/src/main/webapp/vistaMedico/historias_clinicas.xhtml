@@ -100,6 +100,7 @@
         	<h:panelGroup class="historiasClinicas-form__campos">
         		<h:panelGroup class="bloque__campos-descripcion">
         			<h:outputText class="bloque__campos-titulo" value="Historia Clínica: Nro. "/>
+        			<h:outputText class="bloque__campos-titulo" value="Condición: "/>
 	        		<h:panelGroup class="bloque__campos">
 		        		<h:outputLabel class = "campos__output" value="DNI" />
 		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
@@ -138,11 +139,17 @@
 	            	</h:panelGroup>
 	            	<h:panelGroup class="historiasClinicas-form__bloque-boton">
 			        	<h:selectOneMenu id="tipoCarrera" value="#{ViewModel.tipoDivisa}" class="historiasClinicas-form__selectMenu">
-							<f:selectItem itemLabel="Tipo de Historia" itemValue="0"/>
+							<f:selectItem itemLabel="Escuela" itemValue="0"/>
 							<f:selectItem itemLabel="Estudiante" itemValue="1" />
 	    					<f:selectItem itemLabel="Trabajador" itemValue="2" />
 						</h:selectOneMenu>
 					</h:panelGroup>
+					<h:outputText class="bloque__campos-titulo" value="Historia Clínica: Nro. "/>
+	            	
+	            	<h:panelGroup class="bloque__campos">
+		        		<h:outputLabel class = "campos__output" value="Usuario" />
+		            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+	            	</h:panelGroup>
 	            	
             	</h:panelGroup>
             	<h:panelGroup class="bloque__campos-descripcion">
