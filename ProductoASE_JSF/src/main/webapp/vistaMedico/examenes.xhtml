@@ -102,7 +102,7 @@
 	        	</h:panelGroup>
 	        	<h:panelGroup class="examenesConsulta-form__bloque-boton">
 		        	<i class="fi fi-br-search-alt"></i>
-		        	<h:selectOneMenu id="tipoDivisa" value="#{ViewModel.tipoDivisa}" class="examenesConsulta-form__selectMenu">
+		        	<h:selectOneMenu id="tipoExamen" value="#{BeanExamen.tipoExamen}" class="examenesConsulta-form__selectMenu">
 						<f:selectItem itemLabel="Tipo de Examen" itemValue="0"/>
 						<f:selectItem itemLabel="Examen Médico" itemValue="1" />
     					<f:selectItem itemLabel="Examen Físico" itemValue="2" />
@@ -120,39 +120,39 @@
         			<h:panelGroup class = "borde__campos">
 		        		<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Fecha" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.fecha}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Hora" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.hora}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Edad" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.edad}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Tiempo de Enfermedad" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.tiempoEnfermedad}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Apetito" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.apetito}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Sueño" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.sueño}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Estado de Ánimo" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.estadoAnimo}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Sed" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.sed}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Motivo" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.motivo}" />
 		            	</h:panelGroup>
 	            	</h:panelGroup>
             	</h:panelGroup>
@@ -161,19 +161,19 @@
             		<h:panelGroup class = "borde__campos" rendered="#{false}">
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Diagnóstico" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.diagnostico}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Tratamiento" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.tratamiento}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Exámenes Auxiliares" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.examenesAux}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Observación" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.observacion}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos bloque__campos--guardar">
 			        		<h:commandButton class = "campos__boton" value = "Guardar" action="#{loginBean.login}" />
@@ -183,43 +183,43 @@
 		            <h:panelGroup class = "borde__campos" rendered="#{true}">
 		            	<h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="Temperatura" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.temperatura}" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="P.A." />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.PA}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="F.R." />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.FR}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="SPO2" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.SPO2}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="Peso" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.peso}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="Talla" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.talla}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="F.C." />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.FC}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="Perímetro Abs" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.perimetroAbdominal}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos" style="width: 100px;">
 			        		<h:outputLabel class = "campos__output" value="IMC" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.IMC}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos" style="flex-grow: 3.5;">
 			        		<h:outputLabel class = "campos__output" value="Observación" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.observacion}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos bloque__campos--guardar">
 			        		<h:commandButton class = "campos__boton" value = "Guardar" action="#{loginBean.login}" />
@@ -228,16 +228,16 @@
 		            
 		            <h:panelGroup class = "borde__campos" rendered="#{false}">
 		            	<h:panelGroup class="bloque__campos--checkbox">
-			        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />
+			        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{BeanExamen.APCardiovascular}" />
 	            			<h:outputLabel class = "campos__output" value="AP Cardiovascular" />
 		            	</h:panelGroup>
 		            	<h:panelGroup class="bloque__campos--checkbox">
-			        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />
+			        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{BeanExamen.APRespiratorio}" />
 	            			<h:outputLabel class = "campos__output" value="AP Respiratorio" />
 		            	</h:panelGroup>
 			            <h:panelGroup class="bloque__campos">
 			        		<h:outputLabel class = "campos__output" value="Observación" />
-			            	<h:inputText class = "campos__input" value="#{loginBean.username}" />
+			            	<h:inputText class = "campos__input" value="#{BeanExamen.observacion}" />
 			            </h:panelGroup>
 			            <h:panelGroup class="bloque__campos bloque__campos--guardar">
 			        		<h:commandButton class = "campos__boton" value = "Guardar" action="#{loginBean.login}" />
