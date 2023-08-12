@@ -8,7 +8,7 @@
 	<managed-bean>
 		<managed-bean-name>BeanInforme</managed-bean-name>
 		<managed-bean-class>Beans.BeanInforme</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
     <managed-bean>
 		<managed-bean-name>BeanInterfazAdmin</managed-bean-name>

@@ -73,7 +73,7 @@
 	        <h:panelGroup class="vistaPreviaInforme-form__barra-botones">
 	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton">
 	        		<i class="fi fi-br-add"></i>
-	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Generar Informe" action="#{BeanInforme.generarInformePDF}" />
+	        		<h:commandButton class = "vistaPreviaInforme-form__boton" value = "Generar Informe" action="#{BeanInforme.generarInformePDF()}" />
 	        	</h:panelGroup>
 	        	<h:panelGroup class="vistaPreviaInforme-form__bloque-boton">
 		        	<i class="fi fi-br-pen-clip"></i>
@@ -95,30 +95,27 @@
 					<h:panelGroup class="bloque__campos-descripcion">
 						<h:outputText class="bloque__campos-titulo" value="Título: Nombre de la Tabla." />
 					</h:panelGroup>
-					<h:panelGroup class="vistaPreviaInforme-form__tabla-contenedor">
-						<table class = "bloque__tabla">
-							<thead>
+				<h:panelGroup class="vistaPreviaInforme-form__tabla-contenedor">
+					<table class="bloque__tabla">
+						<thead>
+							<tr>
+								<ui:repeat value="#{BeanInforme.encabezadosTabla}"
+									var="encabezado">
+									<th><h:outputText value="#{encabezado}" /></th>
+								</ui:repeat>
+							</tr>
+						</thead>
+						<tbody>
+							<ui:repeat value="#{BeanInforme.datosTabla}" var="fila">
 								<tr>
-									<ui:repeat value="#{BeanInforme.encabezadosTabla}"
-										var="encabezado">
-										<th><h:outputText value="#{encabezado}" /></th>
+									<ui:repeat value="#{fila}" var="valor">
+										<td><h:outputText value="#{valor}" /></td>
 									</ui:repeat>
 								</tr>
-							</thead>
-								<tbody>
-									<ui:repeat value="#{BeanInforme.datosTabla}" var="dato">
-										<tr>
-											<ui:repeat value="#{BeanInforme.datosTabla}" var="fila">
-												<tr>
-													<ui:repeat value="#{fila}" var="valor">
-														<td><h:outputText value="#{valor}" /></td>
-													</ui:repeat>
-												</tr>
-											</ui:repeat>
-										</tr>
-									</ui:repeat>
-								</tbody>
-							</table>
+							</ui:repeat>
+						</tbody>
+
+					</table>
 				</h:panelGroup>
 			</h:panelGroup>
 		</h:form>
