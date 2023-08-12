@@ -5,6 +5,29 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
     version="2.3">
     
+    <navigation-rule>
+    <from-view-id>/index.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>adminAcceso</from-outcome>
+        <to-view-id>vistaAdmin/administrar_cuentas.xhtml</to-view-id>
+        <redirect />
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>medicoAcceso</from-outcome>
+        <to-view-id>vistaMedico/historias_clinicas.xhtml</to-view-id>
+        <redirect />
+    </navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+    <from-view-id>*</from-view-id>
+    <navigation-case>
+        <from-outcome>irLogin</from-outcome>
+        <to-view-id>/index.xhtml</to-view-id>
+        <redirect />
+    </navigation-case>
+    </navigation-rule>
+
 	<managed-bean>
 		<managed-bean-name>BeanInforme</managed-bean-name>
 		<managed-bean-class>Beans.BeanInforme</managed-bean-class>
@@ -25,6 +48,6 @@
 	<managed-bean>
 		<managed-bean-name>BeanLogin</managed-bean-name>
 		<managed-bean-class>Beans.BeanLogin</managed-bean-class>
-		<managed-bean-scope>view</managed-bean-scope>
+		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 </faces-config>

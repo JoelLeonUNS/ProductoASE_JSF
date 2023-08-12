@@ -12,9 +12,9 @@
 		
 	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'/>
 	
-	<link rel="stylesheet" type="text/css" href="css/estiloBase_vista.css" />
+	<link rel="stylesheet" type="text/css" href="../css/estiloBaseVistas.css" />
 	<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/estilo_admin.css" />
+	<link rel="stylesheet" type="text/css" href="css/estiloAdmin.css" />
 	<link rel="icon" href="../imagenes/favicon.png"/>
 	<title>Unidad Médica - Admin</title>
 </h:head>
@@ -36,10 +36,12 @@
 	    	</h:panelGroup>
 	    </h:panelGroup>
 	    <h:panelGroup class="header__nav header__nav--last">
-        	<h:panelGroup class="nav__bloque">
-	        	<i class="fi fi-br-sign-out-alt"></i>
-		    	<a href= "../index.xhtml"><h:outputText value="Cerrar Sesión"/></a>
-	    	</h:panelGroup>
+	    	<h:form  class="nav__bloque">
+	    		<i class="fi fi-br-sign-out-alt"></i>
+			    <h:commandLink action="#{BeanLogin.logout}">
+			        <h:outputText value="Cerrar Sesión"/>
+			    </h:commandLink>
+			</h:form>
 	    </h:panelGroup>
     </h:panelGroup>
     

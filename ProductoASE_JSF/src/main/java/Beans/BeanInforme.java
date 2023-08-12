@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import PDFGenerator.PDFGenerator;
+import instancias.Instanciador;
 import modelo.ModeloInforme;
 @ManagedBean
 @ViewScoped
@@ -26,7 +27,7 @@ public class BeanInforme implements Serializable{
 
 	
     public BeanInforme() {
-        modeloInforme = new ModeloInforme();
+        modeloInforme = Instanciador.getModeloInforme();
     }
 
 

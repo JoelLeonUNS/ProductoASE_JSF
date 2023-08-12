@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import instancias.Instanciador;
 import medicos.Medico;
 
 @ManagedBean
@@ -21,7 +22,7 @@ public class BeanInterfazAdmin implements Serializable {
     private List<Medico> listaMedicos;
 
     public BeanInterfazAdmin() {
-       modelo = new ModeloMedico();
+       modelo = Instanciador.getModeloMedico();
     }
 
     public ModeloMedico getModelo() {

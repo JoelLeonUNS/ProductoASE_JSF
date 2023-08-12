@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry excluding="sqlServerDAO/|factoryDAO/SqlServerDAOFactory.java" kind="src" path="src/main/java"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="factoryDAO/SqlServerDAOFactory.java|sqlServerDAO/|sqlServerDAO/SqlServerConsultaDAO.java|sqlServerDAO/SqlServerExamenClinicoDAO.java|sqlServerDAO/SqlServerExamenFisicoDAO.java|sqlServerDAO/SqlServerExamenMedicoDAO.java|sqlServerDAO/SqlServerFamiliarDAO.java|sqlServerDAO/SqlServerHistoriaClinicaDAO.java|sqlServerDAO/SqlServerHistoriaClinicaEnfermedadDAO.java|sqlServerDAO/SqlServerMedicoDAO.java|sqlServerDAO/SqlServerPacienteDAO.java|sqlServerDAO/SqlServerUsuarioDAO.java" including="Beans/|DAO/|PDFGenerator/|conexiones/|consultas/|examenes/|examenesClinico/|examenesFisico/|examenesMedico/|factoryDAO/|historias/|medicos/|modelo/|mySqlDAO/|pacientes/" kind="src" path="src/main/java"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/USUARIO/eclipse-workspace/ProductoASE_JSF/pdfbox-app-2.0.29.jar"/>

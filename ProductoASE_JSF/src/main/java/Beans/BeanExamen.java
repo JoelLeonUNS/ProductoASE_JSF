@@ -8,12 +8,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import examenes.Examen;
-import examenesMedico.ExamenMedico;
 import examenesClinico.ExamenClinico;
 import examenesFisico.ExamenFisico;
+import examenesMedico.ExamenMedico;
+import instancias.Instanciador;
 import modelo.ModeloConsulta;
 import modelo.ModeloExamen;
-import modelo.ModeloHistoriaClinica;
+import modelo.ModeloHistoriaClinica;	
 
 @ManagedBean
 @ViewScoped
@@ -25,9 +26,9 @@ public class BeanExamen implements Serializable {
     private ModeloHistoriaClinica modeloHistoriaClinica;
 
     public BeanExamen() {
-    	modeloExamen = new ModeloExamen();
-    	modeloConsulta = new ModeloConsulta();
-    	modeloHistoriaClinica = new ModeloHistoriaClinica();
+    	modeloExamen = Instanciador.getModeloExamen();
+    	modeloConsulta = Instanciador.getModeloConsulta();
+    	modeloHistoriaClinica = Instanciador.getModeloHistoriaClinica();
     }
     
     /*public void cambiarTipoExamen(JPanel base, JPanel siguiente) {
