@@ -74,6 +74,10 @@ private ModeloLogin mUsuario;
     public void iniciarSesion() {
         mUsuario.iniciarSesion();
     }
+    
+    public String login() {
+    	return mUsuario.login();
+    }
 
     public void recordarSesion() {
         mUsuario.recordarSesion();

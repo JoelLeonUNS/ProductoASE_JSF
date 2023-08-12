@@ -31,7 +31,7 @@ public class MySqlConexion {
             conector = DriverManager.getConnection(conexion, nombreUsuario, clave);          
             conector.setAutoCommit(false);   
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error de nombre de usuario y/o clave: " + e.getMessage(), "Error de conexión", JOptionPane.ERROR_MESSAGE);
+        	System.out.println("Error de nombre de usuario y/o clave: " + e.getMessage());
         }
     }
     

@@ -53,7 +53,8 @@ public class ModeloLogin {
     }
     
     public void iniciarSesion() {
-        for(Usuario usuarioBD: (List<Usuario>)dao.getUsuario().listed()) {
+    	List<Usuario> listed = (List<Usuario>)dao.getUsuario().listed();
+        for(Usuario usuarioBD: listed) {
             if (usuarioBD.getUsuario().equals(usuario.getUsuario())
                 && usuarioBD.getClave().equals(usuario.getClave())) {
                 datosValido = true;
@@ -64,6 +65,20 @@ public class ModeloLogin {
             }
         }
         if (!datosValido) numeroIntentos++;  
+    }
+    
+    public String login() {
+    	iniciarSesion();
+    	if (datosValido) {
+    		if(usuario.getRol().equals("Admin")) {
+    			return "/vistaAdmin/administrar_cuentas.xhtml";
+    		} else {
+    			return "/vistaMedico/historias_clinicas.xhtml";
+    		}
+    		
+    	} else {
+    		 return "failure"; 
+    	}
     }
     
     public void recordarSesion() {

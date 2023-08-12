@@ -25,6 +25,9 @@ public class BeanExamen implements Serializable {
     private ModeloHistoriaClinica modeloHistoriaClinica;
 
     public BeanExamen() {
+    	modeloExamen = new ModeloExamen();
+    	modeloConsulta = new ModeloConsulta();
+    	modeloHistoriaClinica = new ModeloHistoriaClinica();
     }
     
     /*public void cambiarTipoExamen(JPanel base, JPanel siguiente) {

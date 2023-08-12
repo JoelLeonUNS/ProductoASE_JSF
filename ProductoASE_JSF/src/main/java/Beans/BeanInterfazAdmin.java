@@ -21,7 +21,7 @@ public class BeanInterfazAdmin implements Serializable {
     private List<Medico> listaMedicos;
 
     public BeanInterfazAdmin() {
-       
+       modelo = new ModeloMedico();
     }
 
     public ModeloMedico getModelo() {

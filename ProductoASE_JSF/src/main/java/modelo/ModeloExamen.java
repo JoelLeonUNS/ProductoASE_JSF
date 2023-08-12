@@ -26,6 +26,8 @@ public class ModeloExamen {
     private ExamenClinico examenClinicoTmp;
 
     public ModeloExamen() {
+    	examen = new Examen();
+    	
         this.dao = new MySqlDAOFactory();
     }
 
