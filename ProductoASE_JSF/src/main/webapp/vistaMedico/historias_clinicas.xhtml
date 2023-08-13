@@ -59,23 +59,23 @@
     
     <h:panelGroup id="main">
 	    <h:form id="buscarHistoria" class="buscarHistoria-form">
-	        <h:panelGroup class="buscarHistoria-form__barra">
-	        	<h:commandButton class = "buscarHistoria-form__boton" image="../imagenes/busqueda.svg" action="#{loginBean.login}" />
-	            <h:inputText class = "buscarHistoria-form__input" value="#{loginBean.username}" />
+	        <h:panelGroup class="buscarHistoria-form__barra">	
+	        	<h:commandButton class = "buscarHistoria-form__boton" image="../imagenes/busqueda.svg" action="#{BeanHistoriaClinica.buscarHistoriaClinicaCoincidente}" />
+	            <h:inputText class = "buscarHistoria-form__input" value="#{BeanHistoriaClinica.valorBuscado}" />
 	        </h:panelGroup>
 	        <h:panelGroup class="buscarHistoria-form__tabla-contenedor">
-		        <h:dataTable class="buscarHistoria-form__tabla" value="#{miBean.listaDeDatos}" var="dato">
+		        <h:dataTable class="buscarHistoria-form__tabla" value="#{BeanHistoriaClinica.historiasClinicas}" var="dato">
 				    <h:column>
-				        <f:facet name="header">DNI</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
+				        <f:facet name="header" >DNI</f:facet>
+				        <h:outputText value="#{dato.paciente.dni}" />
 				    </h:column>
 				    <h:column>
 				        <f:facet name="header">Nombre</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
+				        <h:outputText value="#{dato.paciente.nombre}" />
 				    </h:column>
 				    <h:column>
 				        <f:facet name="header">Apellido</f:facet>
-				        <h:outputText value="#{dato.propiedad1}" />
+				        <h:outputText value="#{dato.paciente.apellido}" />
 				    </h:column>
 				</h:dataTable>
 			</h:panelGroup>
@@ -94,6 +94,10 @@
     					<f:selectItem itemLabel="Trabajador" itemValue="2" />
 					</h:selectOneMenu>
 				</h:panelGroup>
+				<h:panelGroup class="historiasClinicas-form__bloque-boton">
+	        		<i class="fi fi-br-edit"></i>
+	        		<h:commandButton class = "historiasClinicas-form__boton" value = "Editar Historia" action="#{loginBean.login}" />
+	        	</h:panelGroup>
 	        	<h:panelGroup class="historiasClinicas-form__bloque-boton historiasClinicas-form__bloque-boton--last">
 	        		<i class="fi fi-br-disk"></i>
 	        		<h:commandButton class = "historiasClinicas-form__boton" value = "Guardar" action="#{loginBean.login}" />
@@ -103,7 +107,7 @@
         	
         		<h:panelGroup class="bloque__campos-descripcion" rendered="#{false}">
 	        		<h:panelGroup class="bloque__campos-titulo">
-	        			<b><h:outputText  value="Historia Clínica: Nro. "/></b><h:outputText  value=" "/>
+	        			<b><h:outputText id ="idHistoriaEstudiante" value="Historia Clínica: Nro. #{BeanHistoriaClinica.historiaClinica.idHistoriaClinica}"/></b><h:outputText  value=" "/>
         				<b><h:outputText value="Condición: "/></b><h:outputText  value="Estudiante"/>
 	        		</h:panelGroup>        			
 	        		<h:panelGroup class="bloque__campos" style="width:125px;">
@@ -169,7 +173,7 @@
 				
 				<h:panelGroup class="bloque__campos-descripcion" rendered="#{true}">
 	        		<h:panelGroup class="bloque__campos-titulo">
-	        			<b><h:outputText  value="Historia Clínica: Nro. "/></b><h:outputText  value=" "/>
+	        			<b><h:outputText  id ="idHistoriaTrabajador"   value="Historia Clínica: Nro. #{BeanHistoriaClinica.historiaClinica.idHistoriaClinica}"/></b><h:outputText  value=" "/>
         				<b><h:outputText value="Condición: "/></b><h:outputText  value="Trabajador"/>
 	        		</h:panelGroup>        			
 	        		<h:panelGroup class="bloque__campos" style="width:125px;">
@@ -240,6 +244,7 @@
 				<h:panelGroup class="bloque__campos-descripcion bloque__campos-descripcion--columna">
 					<h:outputText class="bloque__campos-titulo" value="Antecedentes Patológicos"/>
 					<h:panelGroup class="bloque-checkboxs">
+						<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />
 						<h:outputLabel class = "campos__output" value="Saranpión" />
 		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
 						<h:outputLabel class = "campos__output" value="Faringitis" />
@@ -286,8 +291,7 @@
 		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
 						<h:outputLabel class = "campos__output" value="Operaciones" />
 		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	
-						<h:outputLabel class = "campos__output" value="Transf. Sanguínea" />
-		        		<h:selectBooleanCheckbox class = "campos__checkbox"  value="#{miBean.miPropiedad}" />	 	
+						<h:outputLabel class = "campos__output" value="Transf. Sanguínea" /> 	
 	            	</h:panelGroup>
             		<h:panelGroup class="bloque__campos bloque__campos--fila">
 	        			<h:outputLabel class = "campos__output" value="Otros" />

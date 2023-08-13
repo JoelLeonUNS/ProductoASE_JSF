@@ -42,9 +42,9 @@
 	        </h:panelGroup>
 	        <h:panelGroup class="login-form__campos">
 	            <h:outputLabel class = "campos__output" value="Usuario" />
-	            <h:inputText class = "campos__input" value="#{BeanLogin.usuario}" />
+	            <h:inputText class = "campos__input" value="#{BeanLogin.usuario}" required = "true"/>
 	            <h:outputLabel class = "campos__output" value="Contraseña" />
-	            <h:inputSecret class = "campos__input" value="#{BeanLogin.clave}" />
+	            <h:inputSecret class = "campos__input" value="#{BeanLogin.clave}" required = "true"/>
 	            <h:selectBooleanCheckbox class = "campos__checkbox"  value="#{BeanLogin.chckbxRecodarSeleccionado}" disabled="#{BeanLogin.bttnLoginDeshabilitado}" /> 
 	            <h:outputLabel class = "campos__output" value="Recordar Sesión" />
 	            <h:commandButton class = "campos__boton" value="Iniciar Sesión" action="#{BeanLogin.login}" />

@@ -46,13 +46,13 @@
     </h:panelGroup>
     
     <h:panelGroup id="main">
-	    <h:form id="buscarHistoria" class="buscarHistoria-form">
-	        <h:panelGroup class="buscarHistoria-form__barra">
-	        	<h:commandButton class = "buscarHistoria-form__boton" image="../imagenes/busqueda.svg" actionListener="#{BeanInterfazAdmin.buscarMedicoCoincidente}" />
-	            <h:inputText class = "buscarHistoria-form__input" value="#{BeanInterfazAdmin.valorBuscado}" />
+	    <h:form id="buscarMedico" class="buscarMedico-form">
+	        <h:panelGroup class="buscarMedico-form__barra">
+	        	<h:commandButton class = "buscarMedico-form__boton" image="../imagenes/busqueda.svg" actionListener="#{BeanInterfazAdmin.buscarMedicoCoincidente}" />
+	            <h:inputText class = "buscarMedico-form__input" value="#{BeanInterfazAdmin.valorBuscado}" />
 	        </h:panelGroup>
-	        <h:panelGroup class="buscarHistoria-form__tabla-contenedor">
-		        <h:dataTable class="buscarHistoria-form__tabla" value="#{BeanInterfazAdmin.listaMedicos}" var="medico">
+	        <h:panelGroup class="buscarMedico-form__tabla-contenedor">
+		        <h:dataTable class="buscarMedico-form__tabla" value="#{BeanInterfazAdmin.listaMedicos}" var="medico">
 				    <h:column>
 				        <f:facet name="header">DNI</f:facet>
 				        <h:outputText value="#{medico.DNI}" />

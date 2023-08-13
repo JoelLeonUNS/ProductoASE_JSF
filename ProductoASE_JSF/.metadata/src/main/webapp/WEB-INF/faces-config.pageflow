@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16916297703790" configfile="/ProductoASE_JSF/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf16918576050233" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf16918576050234 pf16918577032636" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="vistaAdmin/administrar_cuentas.xhtml" id="pf16918576050245" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16918576050234" path="vistaAdmin/administrar_cuentas.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="vistaMedico/historias_clinicas.xhtml" id="pf16918577032647" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf16918577032636" path="vistaMedico/historias_clinicas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="370" id="pf16918576050233" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf16918576050234 pf16918577032636" inlinks="pf16918710039938" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="vistaAdmin/administrar_cuentas.xhtml" x="554" y="178" id="pf16918576050245" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16918576050234" path="vistaAdmin/administrar_cuentas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="vistaMedico/historias_clinicas.xhtml" x="554" y="562" id="pf16918577032647" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf16918577032636" path="vistaMedico/historias_clinicas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="370" id="pf16918710039939" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf16918710039938" path="*"/>
   <links id="pf16918576050234" target="pf16918576050245" source="pf16918576050233" outcome="adminAcceso" redirect="true"/>
   <links id="pf16918577032636" target="pf16918577032647" source="pf16918576050233" outcome="medicoAcceso" redirect="true"/>
+  <links id="pf16918710039938" target="pf16918576050233" source="pf16918710039939" outcome="irLogin" redirect="true"/>
 </pageflow:Pageflow>
