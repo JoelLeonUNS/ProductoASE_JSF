@@ -127,7 +127,7 @@ public class MySqlMedicoDAO extends MedicoDAO<Medico> {
         int lastId = 0;
         
         try{
-            setSql("SELECT TOP 1 idMedico FROM Medico order by idMedico desc");
+            setSql("SELECT idMedico FROM Medico ORDER BY idMedico DESC LIMIT 1");
             setPs(getConector().prepareStatement(getSql()));
             setRs(getPs().executeQuery());
             

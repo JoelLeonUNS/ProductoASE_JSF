@@ -117,7 +117,7 @@ public class MySqlUsuarioDAO extends UsuarioDAO<Usuario> {
     public int lastId() {
         int lastId = 0;
         try {
-            setSql("SELECT TOP 1 idUsuario FROM Usuario ORDER BY idUsuario DESC");
+            setSql("SELECT idUsuario FROM Usuario ORDER BY idUsuario DESC LIMIT 1");
             setPs(getConector().prepareStatement(getSql()));
             setRs(getPs().executeQuery());
             if (getRs().next()) {

@@ -8,7 +8,7 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/USUARIO/eclipse-workspace/ProductoASE_JSF/pdfbox-app-2.0.29.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/USUARIO/eclipse-workspace/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="G:/UNS/CICLO VI/BASE DE DATOS II/CONECTORES BD/mysql-connector-odbc-noinstall-8.0.33-winx64/mysql-connector-j-8.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="G:/UNS/CICLO VI/BASE DE DATOS II/CONECTORES BD/pdfbox-app-2.0.29.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

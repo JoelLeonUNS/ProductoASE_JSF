@@ -71,6 +71,8 @@ public class ModeloMedico {
     
     public void registrar(){
         try {
+        	medico.getUsuario().setRol("Médico");
+        	medico.getUsuario().setEstado(true);
             dao.getUsuario().create((Usuario)medico.getUsuario());
             dao.getMedico().create((Medico)medico);
         } catch (Exception e) {}

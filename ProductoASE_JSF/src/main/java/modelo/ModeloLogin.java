@@ -20,7 +20,7 @@ public class ModeloLogin {
         usuario = new Usuario();
         chckbxRecodarSeleccionado = false;
         this.dao = new MySqlDAOFactory(); // o MySql
-        MySqlConexion.setDatos("localhost", "3306", "UnidadMedica", "root", "02122002");	
+        MySqlConexion.setDatos("localhost", "3306", "UnidadMedica", "root", "halamadrid");	
     }
  
     public Usuario getUsuario() {
