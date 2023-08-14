@@ -55,16 +55,30 @@
 		        <h:dataTable class="buscarMedico-form__tabla" value="#{BeanInterfazAdmin.listaMedicos}" var="medico">
 				    <h:column>
 				        <f:facet name="header">DNI</f:facet>
-				        <h:outputText value="#{medico.DNI}" />
+				        <!--  <h:outputText value="#{medico.DNI}" onclick="#{BeanInterfazAdmin.medico}"/>-->
+				        <h:commandLink style="text-decoration: none; color: inherit; cursor: pointer;" action="#{BeanInterfazAdmin.setMedico(medico)}">
+				            <h:outputText value="#{medico.DNI}" />
+				            <f:ajax execute="@this" render=":administrarCuenta:panelCuentaCampos" />
+				        </h:commandLink>
+				        <!--<h:outputText value="#{medico.DNI}" /> -->
 				    </h:column>
 				    <h:column>
 				        <f:facet name="header">Nombre</f:facet>
-				        <h:outputText value="#{medico.nombreMedico}" />
+				        <h:commandLink style="text-decoration: none; color: inherit; cursor: pointer;" action="#{BeanInterfazAdmin.setMedico(medico)}">
+				            <h:outputText value="#{medico.nombreMedico}" />
+				            <f:ajax execute="@this" render=":administrarCuenta:panelCuentaCampos" />
+				        </h:commandLink>
+				        <!--<h:outputText value="#{medico.nombreMedico}" /> -->
 				    </h:column>
 				    <h:column>
 				        <f:facet name="header">Apellido</f:facet>
-				        <h:outputText value="#{medico.apellidoMedico}" />
+				        <h:commandLink style="text-decoration: none; color: inherit; cursor: pointer;" action="#{BeanInterfazAdmin.setMedico(medico)}">
+				            <h:outputText value="#{medico.apellidoMedico}" />
+				            <f:ajax execute="@this" render=":administrarCuenta:panelCuentaCampos" />
+				        </h:commandLink>
+				       <!-- <h:outputText value="#{medico.apellidoMedico}" /> -->
 				    </h:column>
+				    
 				</h:dataTable>
 			</h:panelGroup>
 	    </h:form>
@@ -81,6 +95,7 @@
     					<f:setPropertyActionListener value="" target="#{BeanInterfazAdmin.usuario}" />
     					<f:setPropertyActionListener value="" target="#{BeanInterfazAdmin.clave}" />
     					<f:setPropertyActionListener value="CREAR" target="#{BeanInterfazAdmin.tipoGuardado}" />
+    					<f:ajax execute="@this" render=":administrarCuenta:panelCuentaCampos" />
 					</h:commandButton>
 	        	</h:panelGroup>
 	        	<h:panelGroup class="administrarCuenta-form__bloque-boton">
@@ -99,7 +114,7 @@
 	        		<h:commandButton class = "administrarCuenta-form__boton" value = "Guardar" actionListener="#{BeanInterfazAdmin.guardar}" />
 	        	</h:panelGroup>
 	       	</h:panelGroup>
-        	<h:panelGroup class="administrarCuenta-form__campos">
+        	<h:panelGroup id="panelCuentaCampos" class="administrarCuenta-form__campos">
         		<h:panelGroup class="bloque__campos-descripcion">
         			<h:outputText class="bloque__campos-titulo" value="Datos Personales"/>
 	        		<h:panelGroup class="bloque__campos">
@@ -137,5 +152,6 @@
     <h:panelGroup id="footer">
     	<h:outputText value="Integrantes: Castillo Goicochea Angie Carolina, Gonzales Corzo Abner Jorge, Leon Mondoñedo Joel y Tirado Mendoza Gilmer Alexander."/>
     </h:panelGroup>
+        
 </h:body>
 </html>

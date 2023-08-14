@@ -36,6 +36,8 @@ public class ModeloMedico {
 
     public void setMedico(Medico medico) {
         this.medico = medico;
+        this.idMedico = medico.getIdMedico();
+        System.out.println("Medico seteado: " + medico.getNombreMedico());
     }
  
     public Medico getMedico() {

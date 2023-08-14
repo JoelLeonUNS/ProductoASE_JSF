@@ -129,6 +129,14 @@ public class BeanInterfazAdmin implements Serializable {
 	public void setListaMedicos(List<Medico> listaMedicos) {
 		this.listaMedicos = listaMedicos;
 	}
+	
+	public Medico getMedico() {
+		return modelo.getMedico();
+	}
+	
+	public void setMedico(Medico medico) {
+		modelo.setMedico(medico);
+	}
 
 	//Metodos Actuales
     public void setDatosMedico(String dni, String nombre, String apellidos, String telefono){
